@@ -3,6 +3,9 @@
   left: 2%;
   width: 50%;
   height: 100%;
+
+  font-family: Arial, sans-serif;
+
   background-color: rgb(172, 159, 159);
 }
 
@@ -54,7 +57,7 @@
 .info2 {
   position: absolute;
   width: 600px;
-  top: 485px;
+  top: 445px;
   left: 90px;
 
   text-align: left;
@@ -65,7 +68,7 @@
 .info3 {
   position: absolute;
   width: 600px;
-  top: 585px;
+  top: 525px;
   left: 90px;
 
   text-align: left;
@@ -78,6 +81,8 @@
   right: 2%;
   width: 50%;
   height: 100%;
+
+  font-family: Arial, sans-serif;
 }
 
 .results {
