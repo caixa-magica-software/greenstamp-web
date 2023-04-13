@@ -36,8 +36,8 @@ const HomePageContent = () => {
         <p className={classes.infoHeader}>Mobile Energy Efficiency Services</p>
         <p className={classes.info1}>
           The GreenStamp project aims to investigate and develop innovative
-          mechanisms <br/> for analyzing and cataloging the energy efficiency of
-          mobile applications integrated into app store processes.{" "}
+          mechanisms for analyzing and cataloging the energy efficiency of
+          mobile applications integrated into app store processes.
         </p>
         <p className={classes.info2}>
           Pedagogical recommendation systems for developers will also be
@@ -55,9 +55,8 @@ const HomePageContent = () => {
       </div>
 
       <div className={classes.rightBox}>
-        <p className={classes.results}>Test</p>
-        <p>
-          Results:
+        <p className={classes.results}>
+          Test
           <br />
           {results}
         </p>
