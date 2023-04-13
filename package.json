@@ -47,7 +47,7 @@
     "clean": "rm -rf build",
     "generate-build-version": "node generate-build-version",
     "prebuild": "yarn generate-build-version",
-    "start": "set PORT=3001 && react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "postbuild": "mv -f server/* build/",
     "test": "react-scripts test",
