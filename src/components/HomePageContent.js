@@ -57,30 +57,28 @@ const HomePageContent = () => {
       </div>
 
       <div className={classes.rightBox}>
-        <p className={classes.results}>
-          {results !== undefined ? (
-            results
-          ) : (
-            <Fragment>
-              <label>
-                Results for [Application Name]:
-                <br />
-              </label>
-              <label>
-                Energy Consumption:
-                <br />
-              </label>
-              <label>
-                Energy Analysis (Algorithm X):
-                <br />
-              </label>
-              <label>
-                Energy Analysis (Algorithm Y):
-                <br />
-              </label>
-            </Fragment>
-          )}
-        </p>
+        {results !== undefined ? (
+          results
+        ) : (
+          <Fragment>
+            <label className={classes.resultsInfo1}>
+              Results for [Application Name]:
+              <br />
+            </label>
+            <label className={classes.resultsInfo2}>
+              Energy Consumption:
+              <br />
+            </label>
+            <label className={classes.resultsInfo3}>
+              Energy Analysis (Algorithm X):
+              <br />
+            </label>
+            <label className={classes.resultsInfo4}>
+              Energy Analysis (Algorithm Y):
+              <br />
+            </label>
+          </Fragment>
+        )}
       </div>
     </Fragment>
   );
