@@ -31,10 +31,8 @@ const HomePageContent = () => {
     <Fragment>
       <div className={classes.leftBox}>
         {/* <div className={classes.logoArea}> */}
-          <img className={classes.logoImg} src="/logo192.png" alt="Logo" />
-          <p className={classes.logoHeader}>
-            Mobile Energy Efficiency Services
-          </p>
+        <img className={classes.logoImg} src="/logo192.png" alt="Logo" />
+        <p className={classes.logoHeader}>Mobile Energy Efficiency Services</p>
         {/* </div> */}
         <p className={classes.pageHeader}>Green Stamp</p>
         <p className={classes.infoHeader}>Mobile Energy Efficiency Services</p>
@@ -60,9 +58,28 @@ const HomePageContent = () => {
 
       <div className={classes.rightBox}>
         <p className={classes.results}>
-          Test
-          <br />
-          {results}
+          {results !== undefined ? (
+            results
+          ) : (
+            <Fragment>
+              <label>
+                Results for [Application Name]:
+                <br />
+              </label>
+              <label>
+                Energy Consumption:
+                <br />
+              </label>
+              <label>
+                Energy Analysis (Algorithm X):
+                <br />
+              </label>
+              <label>
+                Energy Analysis (Algorithm Y):
+                <br />
+              </label>
+            </Fragment>
+          )}
         </p>
       </div>
     </Fragment>
