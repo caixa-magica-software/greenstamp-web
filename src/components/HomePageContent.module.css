@@ -1,15 +1,14 @@
 .body {
-  background-color: red;
   width: 100%;
   height: 100%;
 }
 
 .leftBox {
   position: absolute;
-  left: 2%;
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: 60%;
 
+  text-align: center;
   font-family: Arial, sans-serif;
 
   background-color: rgb(213, 203, 203);
@@ -36,172 +35,37 @@
 }
 
 .pageHeader {
-  position: absolute;
-  top: 70px;
-  left: 200px;
-  width: clamp(10rem, 39vw, 50rem);
-
   font-weight: 800;
-  font-size: clamp(1rem, 4vw, 4rem);
+  font-size: clamp(1rem, 3.4vw, 4rem);
 
   color: black;
 }
 
 .infoHeader {
-  position: absolute;
-  width: clamp(4rem, 39vw, 50rem);
-  top: 175px;
-  left: 90px;
-
-  font-size: clamp(1rem, 3.6vw, 3rem);
+  font-size: clamp(1rem, 3.4vw, 4rem);
   font-weight: 700;
-  text-align: left;
 
   color: #367b05;
 }
 
 .info1 {
-  position: absolute;
   width: clamp(4rem, 39vw, 50rem);
-  top: 365px;
-  left: 90px;
+  display: inline-block;
 
-  text-align: left;
   background-color: #bdf59c;
-  font-size: clamp(1rem, 1.1vw, 1.3rem);
-}
-
-.info2 {
-  position: absolute;
-  width: clamp(4rem, 39vw, 50rem);
-  top: 445px;
-  left: 90px;
-
-  text-align: left;
-  background-color: #bdf59c;
-  font-size: clamp(1rem, 1.1vw, 1.3rem);
-}
-
-.info3 {
-  position: absolute;
-  width: clamp(4rem, 39vw, 50rem);
-  top: 525px;
-  left: 90px;
-
-  text-align: left;
-  background-color: #bdf59c;
-  font-size: clamp(1rem, 1.1vw, 1.3rem);
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
 }
 
 .rightBox {
   position: absolute;
-  right: 2%;
-  width: 50%;
-  height: 100%;
+  top: 70%;
+  width: 100%;
+  height: 60%;
 
+  text-align: center;
   font-family: Arial, sans-serif;
 }
 
 @media only screen and (max-width: 1032px) {
-  .leftBox {
-    position: absolute;
-    left: 0%;
-    width: 45%;
-    height: 100%;
-
-    font-family: Arial, sans-serif;
-
-    background-color: rgb(213, 203, 203);
-  }
-
-  .logoImg {
-    position: absolute;
-    width: clamp(3rem, 4vw, 5.5rem);
-    top: 36px;
-    left: 10px;
-  }
-
-  .logoHeader {
-    position: absolute;
-    top: 24px;
-    left: 62px;
-
-    font-size: clamp(1rem, 1.2vw, 1.4rem);
-  }
-
-  .pageHeader {
-    position: absolute;
-    top: 70px;
-    left: 50px;
-
-    font-weight: 800;
-    font-size: clamp(1rem, 2vw, 3rem);
-
-    color: black;
-  }
-
-  .infoHeader {
-    position: absolute;
-    top: 125px;
-    left: 1px;
-
-    width: 200px;
-
-    font-size: clamp(1rem, 2vw, 3rem);
-    font-weight: 700;
-    text-align: left;
-
-    color: #367b05;
-  }
-
-  .info1 {
-    position: absolute;
-    width: 200px;
-    height: 50px;
-    top: 225px;
-    left: 1px;
-
-    overflow-y: scroll;
-
-    text-align: left;
-    background-color: #bdf59c;
-    font-size: clamp(1rem, 1.1vw, 1.3rem);
-  }
-
-  .info2 {
-    position: absolute;
-    top: 305px;
-    width: 200px;
-    height: 50px;
-    left: 1px;
-
-    overflow-y: scroll;
-
-    text-align: left;
-    background-color: #bdf59c;
-    font-size: clamp(1rem, 1.1vw, 1.3rem);
-  }
-
-  .info3 {
-    position: absolute;
-    width: 200px;
-    height: 50px;
-    top: 385px;
-    left: 1px;
-
-    overflow-y: scroll;
-
-    text-align: left;
-    background-color: #bdf59c;
-    font-size: clamp(1rem, 1.1vw, 1.3rem);
-  }
-
-  .rightBox {
-    position: absolute;
-    right: 0px;
-    width: 50%;
-    height: 100%;
-
-    font-family: Arial, sans-serif;
-  }
+  
 }

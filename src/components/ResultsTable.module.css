@@ -1,8 +1,8 @@
 .tablePosition {
-  position: absolute;
-  top: 250px;
-  right: 45.8%;
-  width: clamp(15rem, 20vw, 22rem);
+
+  display: inline-block;
+
+  top: 200px;
   text-align: center;
 }
 
@@ -31,11 +31,5 @@
 }
 
 @media only screen and (max-width: 1032px) {
-  .tablePosition {
-    position: absolute;
-    top: 250px;
-    right: 6px;
-    width: clamp(15rem, 15vw, 20rem);
-    text-align: center;
-  }
+
 }
