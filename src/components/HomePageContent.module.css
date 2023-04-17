@@ -1,30 +1,24 @@
 .body {
-  background-color: red;
   width: 100%;
   height: 100%;
 }
 
-.leftBox {
+.topBox {
   position: absolute;
-  left: 2%;
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: 60%;
 
+  text-align: center;
   font-family: Arial, sans-serif;
 
-  background-color: rgb(172, 159, 159);
+  background-color: white;
 }
-
-/* .logoArea {
-  background-color: rgb(255, 255, 255);
-  height: 17%;
-} */
 
 .logoImg {
   position: absolute;
-  width: clamp(5rem, 4vw, 10rem);
-  top: 36px;
-  left: 60px;
+  width: clamp(3rem, 6.2vw, 55rem);
+  top: 30px;
+  left: 48px;
 }
 
 .logoHeader {
@@ -32,111 +26,45 @@
   top: 45px;
   left: 160px;
 
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
-
   color: #6d6d6d;
+
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
 }
 
 .pageHeader {
-  position: absolute;
-  top: 70px;
-  left: 200px;
-
   font-weight: 800;
-  font-size: clamp(1rem, 4vw, 6rem);
+  font-size: clamp(1rem, 3.4vw, 4rem);
 
   color: black;
 }
 
 .infoHeader {
-  position: absolute;
-  width: 600px;
-  top: 175px;
-  left: 90px;
-
-  font-size: clamp(1rem, 3.6vw, 13rem);
+  font-size: clamp(1rem, 3.2vw, 4rem);
   font-weight: 700;
-  text-align: left;
 
   color: #367b05;
-  background-color: #c7d6be;
 }
 
 .info1 {
-  position: absolute;
-  width: 600px;
-  top: 365px;
-  left: 90px;
+  width: clamp(4rem, 39vw, 50rem);
+  display: inline-block;
 
-  text-align: left;
-  background-color: #c7d6be;
-  font-size: clamp(1rem, 1.1vw, 1.3rem);
+  /* background-color: #bdf59c; */
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
 }
 
-.info2 {
+.bottomBox {
   position: absolute;
-  width: 600px;
-  top: 445px;
-  left: 90px;
+  padding-top: 40px;
+  top: 60%;
+  width: 100%;
+  height: 70%;
 
-  text-align: left;
   background-color: #c7d6be;
-  font-size: clamp(1rem, 1.1vw, 1.3rem);
-}
 
-.info3 {
-  position: absolute;
-  width: 600px;
-  top: 525px;
-  left: 90px;
-
-  text-align: left;
-  background-color: #c7d6be;
-  font-size: clamp(1rem, 1.1vw, 1.3rem);
-}
-
-.rightBox {
-  position: absolute;
-  right: 2%;
-  width: 50%;
-  height: 100%;
-
+  text-align: center;
   font-family: Arial, sans-serif;
 }
 
-.resultsInfo1 {
-  position: absolute;
-  top: 250px;
-  right: 10px;
-  width: 600px;
-
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
-}
-
-.resultsInfo2 {
-  position: absolute;
-  top: 290px;
-  right: 10px;
-  width: 600px;
-
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
-}
-
-.resultsInfo3 {
-  position: absolute;
-  top: 330px;
-  right: 10px;
-  width: 600px;
-
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
-}
-
-.resultsInfo4 {
-  position: absolute;
-  top: 370px;
-  right: 10px;
-  width: 600px;
-
-  text-align: left;
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
+@media only screen and (max-width: 1032px) {
 }

@@ -30,11 +30,10 @@ const HomePageContent = () => {
 
   return (
     <Fragment>
-      <div className={classes.leftBox}>
-        {/* <div className={classes.logoArea}> */}
+      <div className={classes.topBox}>
         <img className={classes.logoImg} src="/logo192.png" alt="Logo" />
         <p className={classes.logoHeader}>Mobile Energy Efficiency Services</p>
-        {/* </div> */}
+
         <p className={classes.pageHeader}>Green Stamp</p>
         <p className={classes.infoHeader}>Mobile Energy Efficiency Services</p>
         <p className={classes.info1}>
@@ -42,22 +41,9 @@ const HomePageContent = () => {
           mechanisms for analyzing and cataloging the energy efficiency of
           mobile applications integrated into app store processes.
         </p>
-        <p className={classes.info2}>
-          Pedagogical recommendation systems for developers will also be
-          studied, on how to improve the efficiency of their applications, and
-          for users, of energy-efficient applications aligned with their
-          profile.
-        </p>
-        <p className={classes.info3}>
-          The objective is to reduce at least 20% of the energy consumed by
-          applications that follow the technical recommendations proposed and,
-          inherently, of the mobile devices where they are installed, thus
-          contributing to a significant saving of resources consumed in the
-          mobile market.
-        </p>
       </div>
 
-      <div className={classes.rightBox}>
+      <div className={classes.bottomBox}>
         <ResultsTable />
       </div>
     </Fragment>
