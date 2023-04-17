@@ -21,15 +21,17 @@
 
 .logoImg {
   position: absolute;
-  width: clamp(5rem, 4vw, 5.5rem);
-  top: 36px;
-  left: 60px;
+  width: clamp(3rem, 6.2vw, 55rem);
+  top: 30px;
+  left: 48px;
 }
 
 .logoHeader {
   position: absolute;
   top: 45px;
   left: 160px;
+
+  color: #6d6d6d;
 
   font-size: clamp(1rem, 1.2vw, 1.4rem);
 }
