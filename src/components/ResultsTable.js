@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import classes from "./ResultsTable.module.css";
 import {
   useExpanded,
   useFilters,
