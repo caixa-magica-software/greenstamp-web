@@ -14,11 +14,6 @@
   background-color: white;
 }
 
-/* .logoArea {
-  background-color: rgb(255, 255, 255);
-  height: 17%;
-} */
-
 .logoImg {
   position: absolute;
   width: clamp(3rem, 6.2vw, 55rem);
@@ -61,9 +56,9 @@
 .bottomBox {
   position: absolute;
   padding-top: 40px;
-  top: 70%;
+  top: 60%;
   width: 100%;
-  height: 60%;
+  height: 70%;
 
   background-color: #c7d6be;
 
