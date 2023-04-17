@@ -2,7 +2,7 @@
   position: absolute;
   top: 250px;
   right: 44%;
-  width: clamp(20rem, 20vw, 30rem);
+  width: clamp(15rem, 20vw, 22rem);
   text-align: center;
 }
 
@@ -17,7 +17,7 @@
   border-right: 2px solid black;
 
   color: black;
-  
+
   font-size: clamp(1rem, 1.1vw, 1.4rem);
 }
 
@@ -26,4 +26,14 @@
 
   color: blue;
   font-size: clamp(1rem, 1vw, 1.1rem);
+}
+
+@media only screen and (max-width: 1032px) {
+  .tablePosition {
+    position: absolute;
+    top: 250px;
+    right: 0px;
+    width: clamp(15rem, 15vw, 20rem);
+    text-align: center;
+  }
 }
