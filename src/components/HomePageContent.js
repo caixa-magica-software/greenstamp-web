@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { analyzeURL } from "../config/api";
 import classes from "./HomePageContent.module.css";
+import ResultsTable from "./ResultsTable";
 
 const HomePageContent = () => {
   const [results, setResults] = useState();
@@ -57,28 +58,7 @@ const HomePageContent = () => {
       </div>
 
       <div className={classes.rightBox}>
-        {results !== undefined ? (
-          results
-        ) : (
-          <Fragment>
-            <label className={classes.resultsInfo1}>
-              Results for [Application Name]:
-              <br />
-            </label>
-            <label className={classes.resultsInfo2}>
-              Energy Consumption:
-              <br />
-            </label>
-            <label className={classes.resultsInfo3}>
-              Energy Analysis (Algorithm X):
-              <br />
-            </label>
-            <label className={classes.resultsInfo4}>
-              Energy Analysis (Algorithm Y):
-              <br />
-            </label>
-          </Fragment>
-        )}
+        <ResultsTable />
       </div>
     </Fragment>
   );
