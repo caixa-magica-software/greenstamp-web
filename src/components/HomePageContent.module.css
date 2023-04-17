@@ -33,8 +33,6 @@
   left: 160px;
 
   font-size: clamp(1rem, 1.2vw, 1.4rem);
-
-  color: #6d6d6d;
 }
 
 .pageHeader {
@@ -60,7 +58,6 @@
   text-align: left;
 
   color: #367b05;
-  background-color: #c7d6be;
 }
 
 .info1 {
@@ -70,7 +67,7 @@
   left: 90px;
 
   text-align: left;
-  background-color: #c7d6be;
+  background-color: #bdf59c;
   font-size: clamp(1rem, 1.1vw, 1.3rem);
 }
 
@@ -81,7 +78,7 @@
   left: 90px;
 
   text-align: left;
-  background-color: #c7d6be;
+  background-color: #bdf59c;
   font-size: clamp(1rem, 1.1vw, 1.3rem);
 }
 
@@ -92,7 +89,7 @@
   left: 90px;
 
   text-align: left;
-  background-color: #c7d6be;
+  background-color: #bdf59c;
   font-size: clamp(1rem, 1.1vw, 1.3rem);
 }
 
@@ -114,7 +111,7 @@
 
     font-family: Arial, sans-serif;
 
-    background-color: rgb(172, 159, 159);
+    background-color: rgb(213, 203, 203);
   }
 
   .logoImg {
@@ -130,8 +127,6 @@
     left: 62px;
 
     font-size: clamp(1rem, 1.2vw, 1.4rem);
-
-    color: #6d6d6d;
   }
 
   .pageHeader {
@@ -157,7 +152,6 @@
     text-align: left;
 
     color: #367b05;
-    background-color: #c7d6be;
   }
 
   .info1 {
@@ -170,7 +164,7 @@
     overflow-y: scroll;
 
     text-align: left;
-    background-color: #c7d6be;
+    background-color: #bdf59c;
     font-size: clamp(1rem, 1.1vw, 1.3rem);
   }
 
@@ -184,7 +178,7 @@
     overflow-y: scroll;
 
     text-align: left;
-    background-color: #c7d6be;
+    background-color: #bdf59c;
     font-size: clamp(1rem, 1.1vw, 1.3rem);
   }
 
@@ -198,7 +192,7 @@
     overflow-y: scroll;
 
     text-align: left;
-    background-color: #c7d6be;
+    background-color: #bdf59c;
     font-size: clamp(1rem, 1.1vw, 1.3rem);
   }
 
