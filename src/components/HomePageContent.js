@@ -30,7 +30,7 @@ const HomePageContent = () => {
 
   return (
     <Fragment>
-      <div className={classes.leftBox}>
+      <div className={classes.topBox}>
         {/* <div className={classes.logoArea}> */}
         <img className={classes.logoImg} src="/logo192.png" alt="Logo" />
         <p className={classes.logoHeader}>Mobile Energy Efficiency Services</p>
@@ -44,7 +44,7 @@ const HomePageContent = () => {
         </p>
       </div>
 
-      <div className={classes.rightBox}>
+      <div className={classes.bottomBox}>
         <ResultsTable />
       </div>
     </Fragment>
