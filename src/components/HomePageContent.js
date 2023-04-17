@@ -33,9 +33,7 @@ const HomePageContent = () => {
       <div className={classes.topBox}>
         <img className={classes.logoImg} src="/logo192.png" alt="Logo" />
         <p className={classes.logoHeader}>Mobile Energy Efficiency Services</p>
-
         <p className={classes.pageHeader}>Green Stamp</p>
-        <p className={classes.infoHeader}>Mobile Energy Efficiency Services</p>
         <p className={classes.info1}>
           The GreenStamp project aims to investigate and develop innovative
           mechanisms for analyzing and cataloging the energy efficiency of

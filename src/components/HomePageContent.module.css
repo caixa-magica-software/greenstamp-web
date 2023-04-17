@@ -16,15 +16,15 @@
 
 .logoImg {
   position: absolute;
-  width: clamp(3rem, 6.2vw, 55rem);
+  width: clamp(3rem, 6.2vw, 8rem);
   top: 30px;
-  left: 48px;
+  left: 40px;
 }
 
 .logoHeader {
   position: absolute;
   top: 45px;
-  left: 160px;
+  left: 165px;
 
   color: #6d6d6d;
 
@@ -36,13 +36,6 @@
   font-size: clamp(1rem, 3.4vw, 4rem);
 
   color: black;
-}
-
-.infoHeader {
-  font-size: clamp(1rem, 3.2vw, 4rem);
-  font-weight: 700;
-
-  color: #367b05;
 }
 
 .info1 {
@@ -67,4 +60,108 @@
 }
 
 @media only screen and (max-width: 1032px) {
+  .topBox {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+
+    padding-top: 100px;
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+
+    background-color: white;
+  }
+
+  .logoHeader {
+    position: absolute;
+    top: 28px;
+    left: 115px;
+
+    color: #6d6d6d;
+
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+  }
+
+  .pageHeader {
+    font-weight: 800;
+    font-size: clamp(1rem, 3.4vw, 4rem);
+
+    color: black;
+  }
+
+  .info1 {
+    width: clamp(4rem, 39vw, 50rem);
+    display: inline-block;
+
+    /* background-color: #bdf59c; */
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
+  }
+
+  .bottomBox {
+    position: absolute;
+    padding-top: 40px;
+    top: 60%;
+    width: 100%;
+    height: 70%;
+
+    background-color: #c7d6be;
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+}
+
+
+@media only screen and (max-width: 632px) {
+  .topBox {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+
+    padding-top: 100px;
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+
+    background-color: white;
+  }
+
+  .logoHeader {
+    position: absolute;
+    top: 28px;
+    left: 115px;
+
+    color: #6d6d6d;
+
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+  }
+
+  .pageHeader {
+    font-weight: 800;
+    font-size: clamp(1rem, 3.4vw, 4rem);
+
+    color: black;
+  }
+
+  .info1 {
+    width: clamp(4rem, 39vw, 50rem);
+    display: inline-block;
+
+    /* background-color: #bdf59c; */
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
+  }
+
+  .bottomBox {
+    position: absolute;
+    padding-top: 40px;
+    top: 60%;
+    width: 144%;
+    height: 70%;
+
+    background-color: #c7d6be;
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
 }
