@@ -83,48 +83,50 @@ const ResultsTable = () => {
     table;
 
   return (
-    <table {...getTableProps()}>
-      <thead>
-        {headerGroups.map((headerGroup) => (
-          // Apply the header row props
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {
-              // Loop over the headers in each row
-              headerGroup.headers.map((column) => (
-                // Apply the header cell props
-                <th {...column.getHeaderProps()}>
-                  {
-                    column.render("Header") // Render the header
-                  }
-                </th>
-              ))
-            }
-          </tr>
-        ))}
-      </thead>
-      <tbody>
-        {rows.map((row) => {
-          // Prepare the row for display
-          prepareRow(row);
-          return (
-            // Apply the row props
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                // Loop over the rows cells
-                return (
-                  // Apply the cell props
-                  <td {...cell.getCellProps()}>
+    <div className={classes.tablePosition}>
+      <table {...getTableProps()}>
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            // Apply the header row props
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {
+                // Loop over the headers in each row
+                headerGroup.headers.map((column) => (
+                  // Apply the header cell props
+                  <th {...column.getHeaderProps()}>
                     {
-                      cell.render("Cell") // Render the cell contents
+                      column.render("Header") // Render the header
                     }
-                  </td>
-                );
-              })}
+                  </th>
+                ))
+              }
             </tr>
-          );
-        })}
-      </tbody>
-    </table>
+          ))}
+        </thead>
+        <tbody>
+          {rows.map((row) => {
+            // Prepare the row for display
+            prepareRow(row);
+            return (
+              // Apply the row props
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  // Loop over the rows cells
+                  return (
+                    // Apply the cell props
+                    <td {...cell.getCellProps()}>
+                      {
+                        cell.render("Cell") // Render the cell contents
+                      }
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

@@ -1,0 +1,29 @@
+.tablePosition {
+  position: absolute;
+  top: 250px;
+  right: 44%;
+  width: clamp(20rem, 20vw, 30rem);
+  text-align: center;
+}
+
+.tablePosition table {
+  border: 2px solid black;
+  border-radius: 5px;
+  border-spacing: 0px;
+}
+
+.tablePosition th {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+
+  color: black;
+  
+  font-size: clamp(1rem, 1.1vw, 1.4rem);
+}
+
+.tablePosition td {
+  border-right: 2px solid black;
+
+  color: blue;
+  font-size: clamp(1rem, 1vw, 1.1rem);
+}
