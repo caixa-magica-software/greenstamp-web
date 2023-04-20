@@ -15,12 +15,22 @@ const ResultsTable = () => {
       {
         app: "RTP Notícias",
         package: "pt.rtp.noticias.android",
-        version: "136",
+        version: "99",
         consumption: "1h, 1234Wh",
         analysisx: "1m, 2342Wh",
         analysisy: "1h, 2342Wh",
         category: "Energy Analysis",
         timestamp: "Today",
+      },
+      {
+        app: "aTP Notícias",
+        package: "at.rtp.noticias.android",
+        version: "136",
+        consumption: "1h, 1234Wh",
+        analysisx: "1m, 2342Wh",
+        analysisy: "1h, 2342Wh",
+        category: "anergy Analysis",
+        timestamp: "aToday",
       },
     ],
     []
@@ -93,11 +103,17 @@ const ResultsTable = () => {
                 // Loop over the headers in each row
                 headerGroup.headers.map((column) => (
                   // Apply the header cell props
-                  <th {...column.getHeaderProps()}>
-                    {
-                      column.render("Header") // Render the header
-                    }
-                  </th>
+                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render('Header')}
+                  {/* Add a sort direction indicator */}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? '↓'
+                        : '↑'
+                      : ''}
+                  </span>
+                </th>
                 ))
               }
             </tr>
