@@ -1,3 +1,4 @@
+/* Top Container */
 .topBox {
   position: absolute;
   width: 100%;
@@ -42,6 +43,7 @@
   font-size: clamp(1rem, 1.2vw, 1.3rem);
 }
 
+/* Bottom Container */
 .bottomBox {
   position: absolute;
   padding-top: 40px;
@@ -55,6 +57,7 @@
   font-family: Arial, sans-serif;
 }
 
+/* Media Query for small width devices */
 @media only screen and (max-width: 1032px) {
   .topBox {
     position: absolute;
@@ -107,6 +110,7 @@
   }
 }
 
+/* Media Query for very small width devices */
 @media only screen and (max-width: 632px) {
   .topBox {
     position: absolute;
