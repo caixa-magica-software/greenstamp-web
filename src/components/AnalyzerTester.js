@@ -22,7 +22,10 @@ const AnalyzerTester = () => {
         if (response) {
           const res = response.json();
           if (res.data !== undefined) setResults(res.data);
-          else setResults("Status " + response.status);
+          else
+            setResults(
+              "Status " + response.status + ": " + response.statusText
+            );
         }
       });
 
@@ -30,7 +33,15 @@ const AnalyzerTester = () => {
     }
   });
 
-  return <Fragment>{results !== undefined && <div>{results}</div>}</Fragment>;
+  return (
+    <Fragment>
+      <br />
+      <br />
+      Kadabra Analyzer Test Result:
+      <br />
+      {results !== undefined && <div>{results}</div>}
+    </Fragment>
+  );
 };
 
 export default AnalyzerTester;

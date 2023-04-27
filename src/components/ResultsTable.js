@@ -409,7 +409,7 @@ const ResultsTable = () => {
     usePagination
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+  const { getTableProps, headerGroups, rows, prepareRow } =
     table;
 
   return (
