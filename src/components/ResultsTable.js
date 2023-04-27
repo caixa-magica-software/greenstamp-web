@@ -12,8 +12,7 @@ import {
 
 const ResultsTable = () => {
   const hasFetched = useRef(false);
-  const hasMapped = useRef(false);
-  const [dataArray, setDataArray] = useState([{}]);
+  const [dataArray, setDataArray] = useState([{ state: "loading" }]);
 
   const columns = useMemo(
     () => [
@@ -57,18 +56,15 @@ const ResultsTable = () => {
         const res = await axios.get("http://localhost:8800");
         const responseData = res.data;
         hasFetched.current = true;
-        if (hasMapped.current === false && dataArray.length === 1) {
+        if (dataArray[0].state === "loading") {
           setDataArray(responseData);
-
-          console.log(dataArray);
-          if (dataArray.length > 1) hasMapped.current = true;
         }
       } catch (err) {
         console.log(err);
       }
     };
 
-    if (hasFetched.current === false || hasMapped === false) {
+    if (hasFetched.current === false) {
       fetchAllData();
     }
   }, [dataArray]);
