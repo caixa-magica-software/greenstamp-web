@@ -7,6 +7,10 @@ const HomePageContent = () => {
   const [results, setResults] = useState();
   const hasFetched = useRef(false);
 
+  const mainpageHandler = () => {
+    window.location.reload();
+  };
+
   useEffect(() => {
     if (results !== undefined) hasFetched.current = true;
 
@@ -31,7 +35,7 @@ const HomePageContent = () => {
   return (
     <Fragment>
       <div className={classes.topBox}>
-        <img className={classes.logoImg} src="/logo192.png" alt="Logo" />
+        <img className={classes.logoImg} onClick={mainpageHandler} src="/logo192.png" alt="Logo" />
         <p className={classes.logoHeader}>Mobile Energy Efficiency Services</p>
         <p className={classes.pageHeader}>Green Stamp</p>
         <p className={classes.info1}>
