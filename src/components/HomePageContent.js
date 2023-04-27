@@ -1,33 +1,9 @@
-import { Fragment, useEffect, useRef, useState } from "react";
-import { analyzeURL } from "../config/api";
+import { Fragment } from "react";
 import classes from "./HomePageContent.module.css";
 import ResultsTable from "./ResultsTable";
+import AnalyzerTester from "./AnalyzerTester";
 
 const HomePageContent = () => {
-  const [results, setResults] = useState();
-  const hasFetched = useRef(false);
-
-  useEffect(() => {
-    if (results !== undefined) hasFetched.current = true;
-
-    if (hasFetched.current === false) {
-      fetch(analyzeURL, {
-        method: "POST",
-        body: JSON.stringify({
-          appName: "RTP Notícias",
-          packageName: "pt.rtp.noticias.android",
-          version: 136,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then((response) => {
-        const res = response.JSON();
-        setResults(res.data);
-      });
-    }
-  }, [results, hasFetched]);
-
   return (
     <Fragment>
       <div className={classes.topBox}>
@@ -43,6 +19,7 @@ const HomePageContent = () => {
 
       <div className={classes.bottomBox}>
         <ResultsTable />
+        <AnalyzerTester />
       </div>
     </Fragment>
   );
