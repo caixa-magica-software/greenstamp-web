@@ -54,8 +54,17 @@ const ResultsTable = () => {
     const fetchAllData = async () => {
       try {
         const res = await axios.get("http://localhost:8800");
-        const responseData = res.data;
+        var responseData = res.data;
+        console.log(responseData);
         hasFetched.current = true;
+
+        // formats date
+        responseData.forEach((element) => {
+          let e1 = element.timestamp.replace(/[-]/g, "/");
+          let e2 = e1.replace("T", " ");
+          element.timestamp = e2.replace(".000Z", "");
+        });
+        
         if (dataArray[0].state === "loading") {
           setDataArray(responseData);
         }
