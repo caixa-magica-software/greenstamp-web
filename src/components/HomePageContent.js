@@ -28,7 +28,6 @@ const HomePageContent = () => {
 
       <div className={classes.bottomBox}>
         <ResultsTable />
-        <AnalyzerTester />
       </div>
     </Fragment>
   );
