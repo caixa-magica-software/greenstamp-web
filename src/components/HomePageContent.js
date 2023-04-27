@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import classes from "./HomePageContent.module.css";
 import ResultsTable from "./ResultsTable";
-import AnalyzerTester from "./AnalyzerTester";
 
 const HomePageContent = () => {
   const reload = () => {
@@ -28,7 +27,6 @@ const HomePageContent = () => {
 
       <div className={classes.bottomBox}>
         <ResultsTable />
-        <AnalyzerTester />
       </div>
     </Fragment>
   );
