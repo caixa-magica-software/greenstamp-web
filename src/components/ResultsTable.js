@@ -19,11 +19,9 @@ const ResultsTable = () => {
       try {
         const res = await axios.get("http://localhost:8800");
         setTableData(res.data);
-        console.log("test");
         hasFetched.current = true;
       } catch (err) {
         console.log(err);
-        console.log("test2");
       }
     };
     if (hasFetched.current === false) fetchAllData();
