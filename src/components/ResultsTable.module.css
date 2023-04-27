@@ -3,6 +3,8 @@
   display: inline-block;
 
   top: 200px;
+  height: 500px;
+  overflow-y: auto;
 }
 
 /* Table itself */
@@ -48,6 +50,10 @@
     display: inline-block;
 
     top: 200px;
+    height: 300px;
+    width: 600px;
+    overflow-y: auto;
+    overflow-x: auto;
   }
 
   .tablePosition table {

@@ -26,6 +26,10 @@
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.logoImg:hover {
+  cursor: pointer;
+}
+
 .logoHeader {
   position: absolute;
   top: 45px;
@@ -56,7 +60,7 @@
   padding-top: 40px;
   top: 400px;
   width: 100%;
-  height: 100%;
+  height: 95%;
 
   background-color: #c7d6be;
 
