@@ -11,14 +11,14 @@ import {
 } from "react-table";
 
 const ResultsTable = () => {
-  const [data, setData] = useState([]);
+  const [tabledata, setTableData] = useState([]);
   const hasFetched = useRef(false);
 
   useEffect(() => {
     const fetchAllData = async () => {
       try {
         const res = await axios.get("http://localhost:8800");
-        console.log(res);
+        setTableData(res.data);
         console.log("test");
         hasFetched.current = true;
       } catch (err) {
