@@ -53,7 +53,7 @@ const ResultsTable = () => {
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        const res = await axios.get("http://localhost:8800");
+        const res = await axios.get("http://localhost:3000/api/get-all");
         var responseData = res.data;
         console.log(responseData);
         hasFetched.current = true;
