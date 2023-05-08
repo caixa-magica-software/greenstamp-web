@@ -1,18 +1,32 @@
 import { useMemo, useEffect, useRef, useState } from "react";
 import classes from "./ResultsTable.module.css";
 import axios from "axios";
-import {
-  useExpanded,
-  useFilters,
-  useGroupBy,
-  usePagination,
-  useSortBy,
-  useTable,
-} from "react-table";
+import CategoryTable from "./CategoryTable";
 
 const ResultsTable = () => {
   const hasFetched = useRef(false);
-  const [dataArray, setDataArray] = useState([{ state: "loading" }]);
+
+  const [newsMagazinesArray, setNewsMagazinesArray] = useState([
+    { app_name: " " },
+  ]);
+  const [communicationArray, setCommunicationArray] = useState([
+    { app_name: " " },
+  ]);
+  const [financeArray, setFinanceArray] = useState([{ app_name: " " }]);
+  const [toolsArray, setToolsArray] = useState([{ app_name: " " }]);
+  const [entertainmentArray, setEntertainmentArray] = useState([
+    { app_name: " " },
+  ]);
+  const [musicAudioArray, setMusicAudioArray] = useState([{ app_name: " " }]);
+  const [healthFitnessArray, setHealthFitnessArray] = useState([
+    { app_name: " " },
+  ]);
+  const [socialArray, setSocialArray] = useState([{ app_name: " " }]);
+  const [mapsNavigationArray, setMapsNavigationArray] = useState([
+    { app_name: " " },
+  ]);
+  const [travelLocalArray, setTravelLocalArray] = useState([{ app_name: " " }]);
+  const [businessArray, setBusinessArray] = useState([{ app_name: " " }]);
 
   const columns = useMemo(
     () => [
@@ -48,13 +62,38 @@ const ResultsTable = () => {
     []
   );
 
-  const data = useMemo(() => dataArray, [dataArray]);
+  const newsMagazines = useMemo(() => newsMagazinesArray, [newsMagazinesArray]);
+  const communication = useMemo(() => communicationArray, [communicationArray]);
+  const finance = useMemo(() => financeArray, [financeArray]);
+  const tools = useMemo(() => toolsArray, [toolsArray]);
+  const entertainment = useMemo(() => entertainmentArray, [entertainmentArray]);
+  const musicAudio = useMemo(() => musicAudioArray, [musicAudioArray]);
+  const healthFitness = useMemo(() => healthFitnessArray, [healthFitnessArray]);
+  const social = useMemo(() => socialArray, [socialArray]);
+  const mapsNavigation = useMemo(
+    () => mapsNavigationArray,
+    [mapsNavigationArray]
+  );
+  const travelLocal = useMemo(() => travelLocalArray, [travelLocalArray]);
+  const business = useMemo(() => businessArray, [businessArray]);
 
   useEffect(() => {
     const fetchAllData = async () => {
       try {
+        let newsMagazines = [];
+        let communication = [];
+        let finance = [];
+        let tools = [];
+        let entertainment = [];
+        let musicAudio = [];
+        let healthFitness = [];
+        let social = [];
+        let mapsNavigation = [];
+        let travelLocal = [];
+        let business = [];
+
         const res = await axios.get("http://localhost:3000/api/get-all");
-        var responseData = res.data;
+        let responseData = res.data;
         console.log(responseData);
         hasFetched.current = true;
 
@@ -63,10 +102,78 @@ const ResultsTable = () => {
           let e1 = element.timestamp.replace(/[-]/g, "/");
           let e2 = e1.replace("T", " ");
           element.timestamp = e2.replace(".000Z", "");
+
+          switch (element.category) {
+            case "news-magazines":
+              newsMagazines.push(element);
+              break;
+            case "communication":
+              communication.push(element);
+              break;
+            case "finance":
+              finance.push(element);
+              break;
+            case "tools":
+              tools.push(element);
+              break;
+            case "entertainment":
+              entertainment.push(element);
+              break;
+            case "music-audio":
+              musicAudio.push(element);
+              break;
+            case "health-fitness":
+              healthFitness.push(element);
+              break;
+            case "social":
+              social.push(element);
+              break;
+            case "maps-navigation":
+              mapsNavigation.push(element);
+              break;
+            case "travel-local":
+              travelLocal.push(element);
+              break;
+            case "business":
+              business.push(element);
+              break;
+            default:
+              break;
+          }
         });
 
-        if (dataArray[0].state === "loading") {
-          setDataArray(responseData);
+        if (newsMagazinesArray[0].app_name === " ") {
+          setNewsMagazinesArray(newsMagazines);
+        }
+        if (communicationArray[0].app_name === " ") {
+          setCommunicationArray(communication);
+        }
+        if (financeArray[0].app_name === " ") {
+          setFinanceArray(finance);
+        }
+        if (toolsArray[0].app_name === " ") {
+          setToolsArray(tools);
+        }
+        if (entertainmentArray[0].app_name === " ") {
+          setEntertainmentArray(entertainment);
+        }
+        if (musicAudioArray[0].app_name === " ") {
+          setMusicAudioArray(musicAudio);
+        }
+        if (healthFitnessArray[0].app_name === " ") {
+          setHealthFitnessArray(healthFitness);
+        }
+        if (socialArray[0].app_name === " ") {
+          setSocialArray(social);
+        }
+        if (mapsNavigationArray[0].app_name === " ") {
+          setMapsNavigationArray(mapsNavigation);
+        }
+        if (travelLocalArray[0].app_name === " ") {
+          setTravelLocalArray(travelLocal);
+        }
+        if (businessArray[0].app_name === " ") {
+          setBusinessArray(business);
         }
       } catch (err) {
         console.log(err);
@@ -76,719 +183,33 @@ const ResultsTable = () => {
     if (hasFetched.current === false) {
       fetchAllData();
     }
-  }, [dataArray]);
-
-  const table = useTable(
-    { columns, data },
-    useFilters,
-    useGroupBy,
-    useSortBy,
-    useExpanded,
-    usePagination
-  );
-
-  const { getTableProps, headerGroups, rows, prepareRow } = table;
+  }, [
+    newsMagazinesArray,
+    communicationArray,
+    financeArray,
+    toolsArray,
+    entertainmentArray,
+    musicAudioArray,
+    healthFitnessArray,
+    socialArray,
+    mapsNavigationArray,
+    travelLocalArray,
+    businessArray,
+  ]);
 
   return (
     <div className={classes.tablePosition}>
-      <h1>Music</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Lifestyle</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Business</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Travel Local</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Maps & Navigation</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Social</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Health & Fitness</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Music & Audio</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Entertainment</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Tools</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Finance</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Communication</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>News & Magazines</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <h1>Not Available</h1>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {
-                // Loop over the headers in each row
-                headerGroup.headers.map((column) => (
-                  // Adds sorting controls into the table headers.
-                  <th
-                    className={classes.noSelect}
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    <span>
-                      {column.isSorted ? (column.isSortedDesc ? "↓" : "↑") : ""}
-                    </span>
-                  </th>
-                ))
-              }
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            // Prepare the row for display
-            prepareRow(row);
-            return (
-              // Apply the row props
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  // Loop over the rows cells
-                  return (
-                    // Apply the cell props
-                    <td {...cell.getCellProps()}>
-                      {
-                        cell.render("Cell") // Render the cell contents
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <CategoryTable category={"News & Magazines"} columns={columns} data={newsMagazines} />
+      <CategoryTable category={"Communication"} columns={columns} data={communication} />
+      <CategoryTable category={"Finance"} columns={columns} data={finance} />
+      <CategoryTable category={"Tools"} columns={columns} data={tools} />
+      <CategoryTable category={"Entertainment"} columns={columns} data={entertainment} />
+      <CategoryTable category={"Music & Audio"} columns={columns} data={musicAudio} />
+      <CategoryTable category={"Health & Fitness"} columns={columns} data={healthFitness} />
+      <CategoryTable category={"Social"} columns={columns} data={social} />
+      <CategoryTable category={"Maps & Navigation"} columns={columns} data={mapsNavigation} />
+      <CategoryTable category={"Travel Local"} columns={columns} data={travelLocal} />
+      <CategoryTable category={"Business"} columns={columns} data={business} />
     </div>
   );
 };
