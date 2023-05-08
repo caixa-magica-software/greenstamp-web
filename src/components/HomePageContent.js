@@ -8,7 +8,7 @@ const HomePageContent = () => {
   };
 
   return (
-    <Fragment>
+    <Fragment className={classes.body}>
       <div className={classes.topBox}>
         <img
           className={classes.logoImg}
