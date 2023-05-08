@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import classes from "./HomePageContent.module.css";
 import ResultsTable from "./ResultsTable";
 
