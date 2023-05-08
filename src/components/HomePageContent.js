@@ -8,7 +8,7 @@ const HomePageContent = () => {
   };
 
   return (
-    <Fragment className={classes.body}>
+    <div className={classes.body}>
       <div className={classes.topBox}>
         <img
           className={classes.logoImg}
@@ -28,7 +28,7 @@ const HomePageContent = () => {
       <div className={classes.bottomBox}>
         <ResultsTable />
       </div>
-    </Fragment>
+    </div>
   );
 };
 
