@@ -2,6 +2,7 @@ import { useMemo, useEffect, useRef, useState } from "react";
 import classes from "./ResultsTable.module.css";
 import axios from "axios";
 import CategoryTable from "./CategoryTable";
+import { dbGetAll } from "config/api";
 
 const ResultsTable = () => {
   const hasFetched = useRef(false);
@@ -78,7 +79,9 @@ const ResultsTable = () => {
   const business = useMemo(() => businessArray, [businessArray]);
 
   useEffect(() => {
-    const fetchAllData = async () => {
+    const fetchData = async () => {
+      if (hasFetched.current === true) return;
+
       try {
         let newsMagazines = [];
         let communication = [];
@@ -92,9 +95,8 @@ const ResultsTable = () => {
         let travelLocal = [];
         let business = [];
 
-        const res = await axios.get("http://localhost:3000/api/get-all");
+        const res = await axios.get(dbGetAll);
         let responseData = res.data;
-        console.log(responseData);
         hasFetched.current = true;
 
         // formats date
@@ -179,11 +181,9 @@ const ResultsTable = () => {
         console.log(err);
       }
     };
-
-    if (hasFetched.current === false) {
-      fetchAllData();
-    }
+    fetchData();
   }, [
+    hasFetched,
     newsMagazinesArray,
     communicationArray,
     financeArray,
@@ -199,16 +199,44 @@ const ResultsTable = () => {
 
   return (
     <div className={classes.tablePosition}>
-      <CategoryTable category={"News & Magazines"} columns={columns} data={newsMagazines} />
-      <CategoryTable category={"Communication"} columns={columns} data={communication} />
+      <CategoryTable
+        category={"News & Magazines"}
+        columns={columns}
+        data={newsMagazines}
+      />
+      <CategoryTable
+        category={"Communication"}
+        columns={columns}
+        data={communication}
+      />
       <CategoryTable category={"Finance"} columns={columns} data={finance} />
       <CategoryTable category={"Tools"} columns={columns} data={tools} />
-      <CategoryTable category={"Entertainment"} columns={columns} data={entertainment} />
-      <CategoryTable category={"Music & Audio"} columns={columns} data={musicAudio} />
-      <CategoryTable category={"Health & Fitness"} columns={columns} data={healthFitness} />
+      <CategoryTable
+        category={"Entertainment"}
+        columns={columns}
+        data={entertainment}
+      />
+      <CategoryTable
+        category={"Music & Audio"}
+        columns={columns}
+        data={musicAudio}
+      />
+      <CategoryTable
+        category={"Health & Fitness"}
+        columns={columns}
+        data={healthFitness}
+      />
       <CategoryTable category={"Social"} columns={columns} data={social} />
-      <CategoryTable category={"Maps & Navigation"} columns={columns} data={mapsNavigation} />
-      <CategoryTable category={"Travel Local"} columns={columns} data={travelLocal} />
+      <CategoryTable
+        category={"Maps & Navigation"}
+        columns={columns}
+        data={mapsNavigation}
+      />
+      <CategoryTable
+        category={"Travel Local"}
+        columns={columns}
+        data={travelLocal}
+      />
       <CategoryTable category={"Business"} columns={columns} data={business} />
     </div>
   );
