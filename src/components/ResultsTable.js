@@ -2,10 +2,27 @@ import { useMemo, useEffect, useRef, useState } from "react";
 import classes from "./ResultsTable.module.css";
 import axios from "axios";
 import CategoryTable from "./CategoryTable";
-import { dbGetAll } from "config/api";
+import { dbGetAll, dbGetAllFormatted } from "config/api";
 
 const ResultsTable = () => {
   const hasFetched = useRef(false);
+
+  // FORMATTED APP DATA TESTING
+  const test = async () => {
+    const res = await axios.get(dbGetAllFormatted);
+    const data = res.data.data;
+    data.forEach((app) => {
+      const parsedTests = JSON.parse(app.tests);
+      app.tests = parsedTests;
+    });
+    console.log(data);
+  };
+  const hasTested = useRef(false);
+  useEffect(() => {
+    if (hasTested.current === true) return;
+    test();
+    hasTested.current = true;
+  }, [hasTested]);
 
   const [newsMagazinesArray, setNewsMagazinesArray] = useState([
     { app_name: " " },
