@@ -11,10 +11,10 @@ const ResultsTable = () => {
   const test = async () => {
     const res = await axios.get(dbGetAllFormatted);
     const data = res.data.data;
-    data.forEach((app) => {
-      const parsedTests = JSON.parse(app.tests);
-      app.tests = parsedTests;
-    });
+    // data.forEach((app) => {
+    //   const parsedTests = JSON.parse(app.tests);
+    //   app.tests = parsedTests;
+    // });
     console.log(data);
   };
   const hasTested = useRef(false);
