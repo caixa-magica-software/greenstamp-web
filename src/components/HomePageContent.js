@@ -1,3 +1,4 @@
+import FormattedResults from "./FormattedResults";
 import classes from "./HomePageContent.module.css";
 import ResultsTable from "./ResultsTable";
 
@@ -25,6 +26,7 @@ const HomePageContent = () => {
       </div>
 
       <div className={classes.bottomBox}>
+        <FormattedResults />
         <ResultsTable />
       </div>
     </div>
