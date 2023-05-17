@@ -11,7 +11,17 @@ import {
 
 const CategoryTable = (props) => {
   const table = useTable(
-    { columns: props.columns, data: props.data },
+    {
+      columns: props.columns,
+      data: props.data,
+      initialState: {
+        sortBy: [
+          {
+            id: "ranking",
+          },
+        ],
+      },
+    },
     useFilters,
     useGroupBy,
     useSortBy,
