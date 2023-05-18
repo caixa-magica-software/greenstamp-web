@@ -11,6 +11,7 @@ const HomePageContent = () => {
   const [tab, setTab] = useState(0);
 
   const switchTabs = (e) => {
+    if (tab === parseInt(e.target.value)) return;
     switch (e.target.value) {
       case "0":
         setAppRanking(classes.activeTab);
