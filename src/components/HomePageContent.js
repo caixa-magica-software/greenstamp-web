@@ -1,17 +1,18 @@
+import { useRef } from "react";
 import FormattedResults from "./FormattedResults";
 import classes from "./HomePageContent.module.css";
-import ResultsTable from "./ResultsTable";
-import { useRef } from "react";
+import Results from "./Results";
 
 const HomePageContent = () => {
   const reload = () => {
     window.location.reload();
   };
 
-  const myRef = useRef(null);
+  const rankRef = useRef(null);
+  const advRef = useRef(null);
 
-  const executeScroll = () => myRef.current.scrollIntoView();
-  const executeScrollToTop = () => myRef.current.scrollIntoView();
+  const executeScroll = () => advRef.current.scrollIntoView();
+  const executeScrollToTop = () => rankRef.current.scrollIntoView();
   // run this function from an event handler or an effect to execute scroll
 
   return (
@@ -33,18 +34,20 @@ const HomePageContent = () => {
       </div>
 
       <div className={classes.bottomBox}>
-        <p ref={myRef} className={classes.rankingText}>
+        <p ref={rankRef} className={classes.rankingText}>
           Ranking
         </p>
         <p className={classes.advancedText} onClick={executeScroll}>
           Advanced Results
         </p>
         <FormattedResults />
-        <p ref={myRef} className={classes.resultsText}>
-          Results
+        <p ref={advRef} className={classes.resultsText}>
+          Advanced Results
         </p>
-        <p className={classes.resultsText} onClick={executeScrollToTop}>Ranking</p>
-        <ResultsTable />
+        <p className={classes.resultsText} onClick={executeScrollToTop}>
+          Ranking
+        </p>
+        <Results />
       </div>
     </div>
   );
