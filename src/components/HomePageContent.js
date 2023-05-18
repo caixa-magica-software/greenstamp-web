@@ -26,7 +26,10 @@ const HomePageContent = () => {
       </div>
 
       <div className={classes.bottomBox}>
+        <p className={classes.rankingText}>Ranking</p>
+        <p>Advanced Results</p>
         <FormattedResults />
+        <p className={classes.resultsText}>Results</p>
         <ResultsTable />
       </div>
     </div>

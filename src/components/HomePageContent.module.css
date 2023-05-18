@@ -68,6 +68,18 @@
   font-family: Arial, sans-serif;
 }
 
+.rankingText {
+  font-size: clamp(1rem, 1.6vw, 1.8rem);
+  font-weight: bold;
+  color: black;
+}
+
+.resultsText {
+  font-size: clamp(1rem, 1.6vw, 1.8rem);
+  font-weight: bold;
+  color: black;
+}
+
 /* Media Query for small width devices */
 @media only screen and (max-width: 1032px) {
   .topBox {
