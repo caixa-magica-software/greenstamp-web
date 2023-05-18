@@ -17,7 +17,7 @@ const CategoryTable = (props) => {
       initialState: {
         sortBy: [
           {
-            id: "ranking",
+            id: props.sortID,
           },
         ],
       },

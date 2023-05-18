@@ -115,7 +115,12 @@ const FormattedTable = (props) => {
   return (
     <Fragment>
       {tableData && (
-        <CategoryTable category={category} columns={columns} data={tableData} />
+        <CategoryTable
+          category={category}
+          columns={columns}
+          data={tableData}
+          sortID={"ranking"}
+        />
       )}
     </Fragment>
   );

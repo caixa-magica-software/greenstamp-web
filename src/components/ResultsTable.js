@@ -58,6 +58,27 @@ const ResultsTable = () => {
       {
         Header: "Result",
         accessor: "test_result",
+        id: "test_result",
+        sortType: (rowA, rowB) => {
+          // Get the values of the cells in this column for rowA and rowB
+          let a = rowA.values.test_result;
+          let b = rowB.values.test_result;
+
+          // Check if both values are numbers
+          if (!isNaN(a) && !isNaN(b)) {
+            // If both values are numbers, compare them as numbers
+            return a - b;
+          } else if (!isNaN(a)) {
+            // If only a is a number, sort it first
+            return -1;
+          } else if (!isNaN(b)) {
+            // If only b is a number, sort it first
+            return 1;
+          } else {
+            // If neither value is a number, compare them as strings
+            return a.localeCompare(b);
+          }
+        },
       },
     ],
     []
@@ -100,6 +121,8 @@ const ResultsTable = () => {
 
       // formats date
       responseData.forEach((element) => {
+        if (element.test_result === null) element.test_result = "X";
+        
         let e1 = element.timestamp.replace(/[-]/g, "/");
         let e2 = e1.replace("T", " ");
         element.timestamp = e2.replace(".000Z", "");
@@ -203,41 +226,68 @@ const ResultsTable = () => {
         category={"News & Magazines"}
         columns={columns}
         data={newsMagazines}
+        sortID={"test_result"}
       />
       <CategoryTable
         category={"Communication"}
         columns={columns}
         data={communication}
+        sortID={"test_result"}
       />
-      <CategoryTable category={"Finance"} columns={columns} data={finance} />
-      <CategoryTable category={"Tools"} columns={columns} data={tools} />
+      <CategoryTable
+        category={"Finance"}
+        columns={columns}
+        data={finance}
+        sortID={"test_result"}
+      />
+      <CategoryTable
+        category={"Tools"}
+        columns={columns}
+        data={tools}
+        sortID={"test_result"}
+      />
       <CategoryTable
         category={"Entertainment"}
         columns={columns}
         data={entertainment}
+        sortID={"test_result"}
       />
       <CategoryTable
         category={"Music & Audio"}
         columns={columns}
         data={musicAudio}
+        sortID={"test_result"}
       />
       <CategoryTable
         category={"Health & Fitness"}
         columns={columns}
         data={healthFitness}
+        sortID={"test_result"}
       />
-      <CategoryTable category={"Social"} columns={columns} data={social} />
+      <CategoryTable
+        category={"Social"}
+        columns={columns}
+        data={social}
+        sortID={"test_result"}
+      />
       <CategoryTable
         category={"Maps & Navigation"}
         columns={columns}
         data={mapsNavigation}
+        sortID={"test_result"}
       />
       <CategoryTable
         category={"Travel Local"}
         columns={columns}
         data={travelLocal}
+        sortID={"test_result"}
       />
-      <CategoryTable category={"Business"} columns={columns} data={business} />
+      <CategoryTable
+        category={"Business"}
+        columns={columns}
+        data={business}
+        sortID={"test_result"}
+      />
     </div>
   );
 };
