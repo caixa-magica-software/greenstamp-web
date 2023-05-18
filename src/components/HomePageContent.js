@@ -37,14 +37,14 @@ const HomePageContent = () => {
         <p ref={rankRef} className={classes.rankingText}>
           Ranking
         </p>
-        <p className={classes.advancedText} onClick={executeScroll}>
+        <p className={classes.linkText} onClick={executeScroll}>
           Advanced Results
         </p>
         <FormattedResults />
         <p ref={advRef} className={classes.resultsText}>
           Advanced Results
         </p>
-        <p className={classes.resultsText} onClick={executeScrollToTop}>
+        <p className={classes.linkText} onClick={executeScrollToTop}>
           Ranking
         </p>
         <Results />
