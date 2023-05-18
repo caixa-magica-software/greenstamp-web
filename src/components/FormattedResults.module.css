@@ -6,13 +6,6 @@
   overflow-y: auto;
 }
 
-h1 {
-  position: relative;
-  text-align: left;
-
-  font-size: clamp(1.4rem, 1.6vw, 2.6rem);
-}
-
 /* Table itself */
 .tablePosition table {
   border-top: 2px solid black;

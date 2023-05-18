@@ -86,9 +86,7 @@ const FormattedTable = (props) => {
       }
 
       if (app.ranking !== prevRanking && prevRanking !== -1) {
-        console.log(app.sum);
         rank++;
-        console.log("incremented " + app.sum);
       }
 
       prevRanking = app.ranking;
