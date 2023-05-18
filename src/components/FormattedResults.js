@@ -50,7 +50,17 @@ const FormattedResults = () => {
           data.forEach(async (app) => {
             const res = await axios.get(getAppIcon + app.package);
             const icon = res.data.nodes.meta.data.icon;
-            app.icon = <img height={"50px"} src={icon} alt={app.app_name} />;
+            app.icon = (
+              <img
+                style={{
+                  height: "48px",
+                  width: "48px",
+                  marginBottom: "-4px",
+                }}
+                src={icon}
+                alt={app.app_name}
+              />
+            );
 
             const match = app.categories.includes(category);
             if (match === true) categoryData.push(app);
