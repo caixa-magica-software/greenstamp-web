@@ -31,7 +31,7 @@ const CategoryTable = (props) => {
   const { getTableProps, headerGroups, rows, prepareRow } = table;
 
   return (
-    <Fragment>
+    <div className={classes.tableScroll}>
       <h1>{props.category}</h1>
       <table {...getTableProps()}>
         <thead>
@@ -82,7 +82,7 @@ const CategoryTable = (props) => {
       </table>
       <br />
       <br />
-    </Fragment>
+    </div>
   );
 };
 

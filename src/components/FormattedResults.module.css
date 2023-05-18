@@ -2,8 +2,6 @@
 .tablePosition {
   display: inline-block;
   top: 200px;
-
-  overflow-y: auto;
 }
 
 /* Table itself */
@@ -39,9 +37,7 @@
     display: inline-block;
 
     top: 200px;
-    width: 600px;
-    overflow-y: auto;
-    overflow-x: auto;
+    width: 400px;
   }
 
   .tablePosition table {

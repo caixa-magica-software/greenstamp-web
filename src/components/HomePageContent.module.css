@@ -74,7 +74,7 @@
   color: black;
 }
 
-.linkText{
+.linkText {
   text-decoration: underline;
   color: rgb(73, 64, 231);
   -webkit-touch-callout: none; /* iOS Safari */
@@ -191,7 +191,7 @@
     position: absolute;
     padding-top: 40px;
     top: 400px;
-    width: 144%;
+    width: 100%;
 
     background-color: #c7d6be;
 
