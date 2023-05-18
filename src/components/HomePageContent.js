@@ -34,6 +34,12 @@ const HomePageContent = () => {
       </div>
 
       <div className={classes.bottomBox}>
+        <div className={classes.searchBox}>
+          <input type="text" placeholder="Search.." name="search" />
+          <button>
+            <img src="/image.png" alt="search" />
+          </button>
+        </div>
         <p ref={rankRef} className={classes.rankingText}>
           Ranking
         </p>

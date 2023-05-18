@@ -69,9 +69,26 @@
 }
 
 .rankingText {
-  font-size: clamp(1.4rem, 1.6vw, 1.8rem);
+  font-size: clamp(1.6rem, 2.4vw, 3rem);
   font-weight: bold;
   color: black;
+}
+
+.searchBox {
+  display: inline;
+}
+
+.searchBox input {
+  height: 30px;
+}
+
+.searchBox button {
+  height: 34px;
+  width: 34px;
+}
+
+.searchBox img {
+  height: 16px;
 }
 
 .linkText {
@@ -97,7 +114,7 @@
 }
 
 .resultsText {
-  font-size: clamp(1.4rem, 1.6vw, 1.8rem);
+  font-size: clamp(1.6rem, 2.4vw, 3rem);
   font-weight: bold;
   color: black;
 }
