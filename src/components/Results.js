@@ -38,8 +38,17 @@ const Results = () => {
       {categories !== undefined &&
         categories.map((category) => {
           let categoryData = [];
-          data.forEach((app) => {
-            if (app.category === category) categoryData.push(app);
+          data.forEach(async (app) => {
+            if (app.category === category) {
+              const res = await axios.get(
+                "https://ws75.aptoide.com/api/7/getApp?package_name=" +
+                  app.package
+              );
+              const icon = res.data.nodes.meta.data.icon;
+              app.icon = <img src={icon} alt={app.app_name} />;
+
+              categoryData.push(app);
+            }
           });
 
           return (

@@ -4,6 +4,7 @@ import CategoryTable from "./CategoryTable";
 const ResultsTable = (props) => {
   const [dataArray, setDataArray] = useState();
   const tableData = useMemo(() => dataArray, [dataArray]);
+  const [table, setTable] = useState();
 
   let appData = props.data;
   const cat = props.category.replace(
@@ -14,6 +15,10 @@ const ResultsTable = (props) => {
 
   const columns = useMemo(
     () => [
+      {
+        Header: "",
+        accessor: "icon",
+      },
       {
         Header: "App",
         accessor: "app_name",
@@ -68,7 +73,18 @@ const ResultsTable = (props) => {
   );
 
   useEffect(() => {
-    if (dataArray) return;
+    if (tableData && tableData.length > 0) {
+      setTable(
+        <CategoryTable
+          category={category}
+          columns={columns}
+          data={tableData}
+          sortID={"test_result"}
+        />
+      );
+
+      return;
+    }
 
     // converts the timestamp into local time
     let tempArray = [];
@@ -76,29 +92,15 @@ const ResultsTable = (props) => {
       if (app.test_result === null) app.test_result = "X";
 
       const date = new Date(app.timestamp);
-      console.log(date);
       const timestamp = date.toLocaleString();
-      console.log(timestamp);
       app.timestamp = timestamp;
 
       tempArray.push(app);
     });
-
     setDataArray(tempArray);
-  }, [dataArray, appData]);
+  }, [dataArray, appData, category, columns, tableData]);
 
-  return (
-    <Fragment>
-      {tableData && (
-        <CategoryTable
-          category={category}
-          columns={columns}
-          data={tableData}
-          sortID={"test_result"}
-        />
-      )}
-    </Fragment>
-  );
+  return <Fragment>{table}</Fragment>;
 };
 
 export default ResultsTable;
