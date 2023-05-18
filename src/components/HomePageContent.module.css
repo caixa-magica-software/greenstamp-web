@@ -69,13 +69,17 @@
 }
 
 .rankingText {
-  font-size: clamp(1rem, 1.6vw, 1.8rem);
+  font-size: clamp(1.4rem, 1.6vw, 1.8rem);
   font-weight: bold;
   color: black;
 }
 
+.advancedText:hover {
+  cursor: pointer;
+}
+
 .resultsText {
-  font-size: clamp(1rem, 1.6vw, 1.8rem);
+  font-size: clamp(1.4rem, 1.6vw, 1.8rem);
   font-weight: bold;
   color: black;
 }
