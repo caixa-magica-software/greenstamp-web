@@ -16,10 +16,6 @@ const ResultsTable = (props) => {
   const columns = useMemo(
     () => [
       {
-        Header: "",
-        accessor: "icon",
-      },
-      {
         Header: "App",
         accessor: "app_name",
       },

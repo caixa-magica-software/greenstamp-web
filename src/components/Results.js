@@ -40,13 +40,6 @@ const Results = () => {
           let categoryData = [];
           data.forEach(async (app) => {
             if (app.category === category) {
-              const res = await axios.get(
-                "https://ws75.aptoide.com/api/7/getApp?package_name=" +
-                  app.package
-              );
-              const icon = res.data.nodes.meta.data.icon;
-              app.icon = <img src={icon} alt={app.app_name} />;
-
               categoryData.push(app);
             }
           });

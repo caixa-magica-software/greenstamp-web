@@ -1,5 +1,5 @@
 import axios from "axios";
-import { dbGetAllFormatted } from "config/api";
+import { dbGetAllFormatted, getAppIcon } from "config/api";
 import { useEffect, useState } from "react";
 import FormattedTable from "./FormattedTable";
 
@@ -47,7 +47,11 @@ const FormattedResults = () => {
       {categories !== undefined &&
         categories.map((category) => {
           let categoryData = [];
-          data.forEach((app) => {
+          data.forEach(async (app) => {
+            const res = await axios.get(getAppIcon + app.package);
+            const icon = res.data.nodes.meta.data.icon;
+            app.icon = <img height={"50px"} src={icon} alt={app.app_name} />;
+
             const match = app.categories.includes(category);
             if (match === true) categoryData.push(app);
           });

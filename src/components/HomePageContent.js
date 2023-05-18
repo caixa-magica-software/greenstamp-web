@@ -4,6 +4,8 @@ import classes from "./HomePageContent.module.css";
 import Results from "./Results";
 
 const HomePageContent = () => {
+  const packageNameRef = useRef();
+
   const reload = () => {
     window.location.reload();
   };
@@ -13,7 +15,6 @@ const HomePageContent = () => {
 
   const executeScroll = () => advRef.current.scrollIntoView();
   const executeScrollToTop = () => rankRef.current.scrollIntoView();
-  // run this function from an event handler or an effect to execute scroll
 
   return (
     <div className={classes.body}>
@@ -35,7 +36,7 @@ const HomePageContent = () => {
 
       <div className={classes.bottomBox}>
         <div className={classes.searchBox}>
-          <input type="text" placeholder="Search.." name="search" />
+          <input type="text" placeholder="Package Name" ref={packageNameRef} />
           <button>
             <img src="/image.png" alt="search" />
           </button>

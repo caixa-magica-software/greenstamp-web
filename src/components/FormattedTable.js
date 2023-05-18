@@ -4,6 +4,7 @@ import CategoryTable from "./CategoryTable";
 const FormattedTable = (props) => {
   const [dataArray, setDataArray] = useState();
   const tableData = useMemo(() => dataArray, [dataArray]);
+  const [table, setTable] = useState();
 
   let appData = props.data;
   const cat = props.category.replace(
@@ -14,6 +15,10 @@ const FormattedTable = (props) => {
 
   const columns = useMemo(
     () => [
+      {
+        Header: "Icon",
+        accessor: "icon",
+      },
       {
         Header: "App",
         accessor: "app_name",
@@ -63,7 +68,17 @@ const FormattedTable = (props) => {
   );
 
   useEffect(() => {
-    if (dataArray) return;
+    if (tableData && tableData.length > 0) {
+      setTable(
+        <CategoryTable
+          category={category}
+          columns={columns}
+          data={tableData}
+          sortID={"ranking"}
+        />
+      );
+      return;
+    }
 
     // ranks the apps within their category
     appData.sort((a, b) => a.ranking - b.ranking);
@@ -108,20 +123,9 @@ const FormattedTable = (props) => {
     });
 
     setDataArray(tempArray);
-  }, [dataArray, appData]);
+  }, [dataArray, appData, category, tableData, columns]);
 
-  return (
-    <Fragment>
-      {tableData && (
-        <CategoryTable
-          category={category}
-          columns={columns}
-          data={tableData}
-          sortID={"ranking"}
-        />
-      )}
-    </Fragment>
-  );
+  return <Fragment>{table}</Fragment>;
 };
 
 export default FormattedTable;
