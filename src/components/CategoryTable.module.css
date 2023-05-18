@@ -16,6 +16,10 @@
   top: 30px;
 }
 
+.tablePosition h1 {
+  font-size: clamp(1.4rem, 1.8vw, 2rem);
+}
+
 /* Table itself */
 .tablePosition table {
   border-top: 2px solid black;
