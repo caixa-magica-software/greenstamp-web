@@ -4,7 +4,6 @@ import CategoryTable from "./CategoryTable";
 const FormattedTable = (props) => {
   const [dataArray, setDataArray] = useState();
   const tableData = useMemo(() => dataArray, [dataArray]);
-  const increment = false; // false -> rankings can be tied, true -> rankings increment despite being tied
 
   let appData = props.data;
   const cat = props.category.replace(
@@ -38,6 +37,26 @@ const FormattedTable = (props) => {
       {
         Header: "Ranking",
         accessor: "ranking",
+        sortType: (rowA, rowB) => {
+          // Get the values of the cells in this column for rowA and rowB
+          let a = rowA.values.ranking;
+          let b = rowB.values.ranking;
+
+          // Check if both values are numbers
+          if (!isNaN(a) && !isNaN(b)) {
+            // If both values are numbers, compare them as numbers
+            return a - b;
+          } else if (!isNaN(a)) {
+            // If only a is a number, sort it first
+            return -1;
+          } else if (!isNaN(b)) {
+            // If only b is a number, sort it first
+            return 1;
+          } else {
+            // If neither value is a number, compare them as strings
+            return a.localeCompare(b);
+          }
+        },
       },
     ],
     []
@@ -48,18 +67,33 @@ const FormattedTable = (props) => {
 
     // ranks the apps within their category
     appData.sort((a, b) => a.ranking - b.ranking);
-    let prevRanking;
+    let prevRanking = -1;
     let rank = 1;
     let tempArray = [];
-    appData.forEach((app, index) => {
+    appData.forEach((app) => {
       if (typeof app.tests === "string") app.tests = JSON.parse(app.tests);
 
-      if (app.ranking != null) {
-        if ((app.ranking !== prevRanking || increment === true) && index !== 0)
-          rank++;
-        prevRanking = app.ranking;
-        app.ranking = rank;
+      if (
+        app.sum == null ||
+        app.ranking == null ||
+        app.sum === "X" ||
+        app.ranking === "X"
+      ) {
+        app.ranking = "X";
+        app.sum = "X";
+        tempArray.push(app);
+        return;
       }
+
+      if (app.ranking !== prevRanking && prevRanking !== -1) {
+        console.log(app.sum);
+        rank++;
+        console.log("incremented " + app.sum);
+      }
+
+      prevRanking = app.ranking;
+      app.ranking = rank;
+
       tempArray.push(app);
     });
 
@@ -76,7 +110,7 @@ const FormattedTable = (props) => {
     });
 
     setDataArray(tempArray);
-  }, [dataArray, appData, increment]);
+  }, [dataArray, appData]);
 
   return (
     <Fragment>
