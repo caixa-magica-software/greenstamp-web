@@ -54,6 +54,18 @@
   font-size: clamp(1rem, 1.2vw, 1.3rem);
 }
 
+.selecterBox {
+  position: relative;
+  top: 46px;
+}
+
+.selecterBox button {
+  background-color: white;
+  border-radius: 3px;
+  border: 2px solid #c7d6be;
+  border-bottom: none;
+}
+
 /* Bottom Container */
 .bottomBox {
   position: absolute;
