@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useRef, useState } from "react";
+import { useMemo, useEffect, useRef, useState, useCallback } from "react";
 import classes from "./ResultsTable.module.css";
 import axios from "axios";
 import CategoryTable from "./CategoryTable";
@@ -78,124 +78,124 @@ const ResultsTable = () => {
   const travelLocal = useMemo(() => travelLocalArray, [travelLocalArray]);
   const business = useMemo(() => businessArray, [businessArray]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (hasFetched.current === true) return;
+  const fetchData = useCallback(async () => {
+    if (hasFetched.current === true) return;
 
-      try {
-        let newsMagazines = [];
-        let communication = [];
-        let finance = [];
-        let tools = [];
-        let entertainment = [];
-        let musicAudio = [];
-        let healthFitness = [];
-        let social = [];
-        let mapsNavigation = [];
-        let travelLocal = [];
-        let business = [];
+    try {
+      let newsMagazines = [];
+      let communication = [];
+      let finance = [];
+      let tools = [];
+      let entertainment = [];
+      let musicAudio = [];
+      let healthFitness = [];
+      let social = [];
+      let mapsNavigation = [];
+      let travelLocal = [];
+      let business = [];
 
-        const res = await axios.get(dbGetAll);
-        let responseData = res.data;
-        hasFetched.current = true;
+      const res = await axios.get(dbGetAll);
+      let responseData = res.data;
+      hasFetched.current = true;
 
-        // formats date
-        responseData.forEach((element) => {
-          let e1 = element.timestamp.replace(/[-]/g, "/");
-          let e2 = e1.replace("T", " ");
-          element.timestamp = e2.replace(".000Z", "");
+      // formats date
+      responseData.forEach((element) => {
+        let e1 = element.timestamp.replace(/[-]/g, "/");
+        let e2 = e1.replace("T", " ");
+        element.timestamp = e2.replace(".000Z", "");
 
-          switch (element.category) {
-            case "news-magazines":
-              newsMagazines.push(element);
-              break;
-            case "communication":
-              communication.push(element);
-              break;
-            case "finance":
-              finance.push(element);
-              break;
-            case "tools":
-              tools.push(element);
-              break;
-            case "entertainment":
-              entertainment.push(element);
-              break;
-            case "music-audio":
-              musicAudio.push(element);
-              break;
-            case "health-fitness":
-              healthFitness.push(element);
-              break;
-            case "social":
-              social.push(element);
-              break;
-            case "maps-navigation":
-              mapsNavigation.push(element);
-              break;
-            case "travel-local":
-              travelLocal.push(element);
-              break;
-            case "business":
-              business.push(element);
-              break;
-            default:
-              break;
-          }
-        });
+        switch (element.category) {
+          case "news-magazines":
+            newsMagazines.push(element);
+            break;
+          case "communication":
+            communication.push(element);
+            break;
+          case "finance":
+            finance.push(element);
+            break;
+          case "tools":
+            tools.push(element);
+            break;
+          case "entertainment":
+            entertainment.push(element);
+            break;
+          case "music-audio":
+            musicAudio.push(element);
+            break;
+          case "health-fitness":
+            healthFitness.push(element);
+            break;
+          case "social":
+            social.push(element);
+            break;
+          case "maps-navigation":
+            mapsNavigation.push(element);
+            break;
+          case "travel-local":
+            travelLocal.push(element);
+            break;
+          case "business":
+            business.push(element);
+            break;
+          default:
+            break;
+        }
+      });
 
-        if (newsMagazinesArray[0].app_name === " ") {
-          setNewsMagazinesArray(newsMagazines);
-        }
-        if (communicationArray[0].app_name === " ") {
-          setCommunicationArray(communication);
-        }
-        if (financeArray[0].app_name === " ") {
-          setFinanceArray(finance);
-        }
-        if (toolsArray[0].app_name === " ") {
-          setToolsArray(tools);
-        }
-        if (entertainmentArray[0].app_name === " ") {
-          setEntertainmentArray(entertainment);
-        }
-        if (musicAudioArray[0].app_name === " ") {
-          setMusicAudioArray(musicAudio);
-        }
-        if (healthFitnessArray[0].app_name === " ") {
-          setHealthFitnessArray(healthFitness);
-        }
-        if (socialArray[0].app_name === " ") {
-          setSocialArray(social);
-        }
-        if (mapsNavigationArray[0].app_name === " ") {
-          setMapsNavigationArray(mapsNavigation);
-        }
-        if (travelLocalArray[0].app_name === " ") {
-          setTravelLocalArray(travelLocal);
-        }
-        if (businessArray[0].app_name === " ") {
-          setBusinessArray(business);
-        }
-      } catch (err) {
-        console.log(err);
+      if (newsMagazinesArray[0].app_name === " ") {
+        setNewsMagazinesArray(newsMagazines);
       }
-    };
-    fetchData();
+      if (communicationArray[0].app_name === " ") {
+        setCommunicationArray(communication);
+      }
+      if (financeArray[0].app_name === " ") {
+        setFinanceArray(finance);
+      }
+      if (toolsArray[0].app_name === " ") {
+        setToolsArray(tools);
+      }
+      if (entertainmentArray[0].app_name === " ") {
+        setEntertainmentArray(entertainment);
+      }
+      if (musicAudioArray[0].app_name === " ") {
+        setMusicAudioArray(musicAudio);
+      }
+      if (healthFitnessArray[0].app_name === " ") {
+        setHealthFitnessArray(healthFitness);
+      }
+      if (socialArray[0].app_name === " ") {
+        setSocialArray(social);
+      }
+      if (mapsNavigationArray[0].app_name === " ") {
+        setMapsNavigationArray(mapsNavigation);
+      }
+      if (travelLocalArray[0].app_name === " ") {
+        setTravelLocalArray(travelLocal);
+      }
+      if (businessArray[0].app_name === " ") {
+        setBusinessArray(business);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }, [
-    hasFetched,
-    newsMagazinesArray,
-    communicationArray,
-    financeArray,
-    toolsArray,
-    entertainmentArray,
-    musicAudioArray,
-    healthFitnessArray,
-    socialArray,
-    mapsNavigationArray,
-    travelLocalArray,
     businessArray,
+    communicationArray,
+    entertainmentArray,
+    financeArray,
+    healthFitnessArray,
+    mapsNavigationArray,
+    musicAudioArray,
+    newsMagazinesArray,
+    socialArray,
+    toolsArray,
+    travelLocalArray,
   ]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <div className={classes.tablePosition}>
