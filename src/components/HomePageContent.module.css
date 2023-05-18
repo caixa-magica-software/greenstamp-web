@@ -66,6 +66,10 @@
   border-bottom: none;
 }
 
+.selecterBox button:hover {
+  cursor: pointer;
+}
+
 /* Bottom Container */
 .bottomBox {
   position: absolute;
@@ -101,6 +105,14 @@
 
 .searchBox img {
   height: 16px;
+}
+
+.searchBox button:hover {
+  cursor: pointer;
+}
+
+.searchBox img:hover {
+  cursor: pointer;
 }
 
 .linkText {
