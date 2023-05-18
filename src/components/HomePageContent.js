@@ -32,6 +32,11 @@ const HomePageContent = () => {
           mechanisms for analyzing and cataloging the energy efficiency of
           mobile applications integrated into app store processes.
         </p>
+        <div className={classes.selecterBox}>
+          <button>App Ranking</button>
+          <button>Advanced Results</button>
+          <button>Analyze Package</button>
+        </div>
       </div>
 
       <div className={classes.bottomBox}>
