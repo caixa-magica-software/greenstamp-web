@@ -2,7 +2,6 @@ import axios from "axios";
 import { dbGetAllFormatted } from "config/api";
 import { useEffect, useState } from "react";
 import FormattedTable from "./FormattedTable";
-import classes from "./FormattedResults.module.css";
 
 const FormattedResults = () => {
   const [data, setData] = useState();
@@ -44,7 +43,7 @@ const FormattedResults = () => {
   }, []);
 
   return (
-    <div className={classes.tablePosition}>
+    <div>
       {categories !== undefined &&
         categories.map((category) => {
           let categoryData = [];

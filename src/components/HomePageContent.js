@@ -40,8 +40,8 @@ const HomePageContent = () => {
         <p className={classes.linkText} onClick={executeScroll}>
           Advanced Results
         </p>
-        <br /><br />
         <FormattedResults />
+        <br />
         <br />
         <p ref={advRef} className={classes.resultsText}>
           Advanced Results
@@ -49,7 +49,6 @@ const HomePageContent = () => {
         <p className={classes.linkText} onClick={executeScrollToTop}>
           Ranking
         </p>
-        <br /><br />
         <Results />
       </div>
     </div>

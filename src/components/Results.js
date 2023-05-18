@@ -2,7 +2,6 @@ import axios from "axios";
 import { dbGetAll } from "config/api";
 import { useEffect, useState } from "react";
 import ResultsTable from "./ResultsTable";
-import classes from "./FormattedResults.module.css";
 
 const Results = () => {
   const [data, setData] = useState();
@@ -35,7 +34,7 @@ const Results = () => {
   }, []);
 
   return (
-    <div className={classes.tablePosition}>
+    <div>
       {categories !== undefined &&
         categories.map((category) => {
           let categoryData = [];
