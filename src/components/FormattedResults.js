@@ -1,11 +1,10 @@
 import axios from "axios";
 import { dbGetAllFormatted } from "config/api";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import FormattedTable from "./FormattedTable";
 import classes from "./FormattedResults.module.css";
 
 const FormattedResults = () => {
-  const hasFetchedFormatted = useRef(false);
   const [data, setData] = useState();
   const [categories, setCategories] = useState();
 
@@ -38,14 +37,11 @@ const FormattedResults = () => {
       return a.localeCompare(b);
     });
     setCategories(categoriesArray);
-
-    hasFetchedFormatted.current = true;
   };
 
   useEffect(() => {
-    if (hasFetchedFormatted.current === true) return;
     fetchFormatted();
-  }, [hasFetchedFormatted]);
+  }, []);
 
   return (
     <div className={classes.tablePosition}>
