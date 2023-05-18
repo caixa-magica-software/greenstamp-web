@@ -14,14 +14,17 @@ const FormattedResults = () => {
     const res = await axios.get(dbGetAllFormatted);
     const response = res.data.data;
     setData(response);
-    console.log(response);
 
     // finds all categories and pushes them into an array
     let categoriesArray = [];
     response.forEach((app) => {
+      if (typeof app.categories === "string") {
+        app.categories = JSON.parse(app.categories);
+      }
       if (app.categories === null) {
         app.categories = ["other"];
       }
+
       app.categories.forEach((category) => {
         if (categoriesArray.includes(category)) return;
         categoriesArray.push(category);

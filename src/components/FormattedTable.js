@@ -52,6 +52,8 @@ const FormattedTable = (props) => {
     let rank = 1;
     let tempArray = [];
     appData.forEach((app, index) => {
+      if (typeof app.tests === "string") app.tests = JSON.parse(app.tests);
+
       if (app.ranking != null) {
         if ((app.ranking !== prevRanking || increment === true) && index !== 0)
           rank++;
