@@ -75,6 +75,12 @@
 }
 
 .linkText {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: max-content;
   text-decoration: underline;
   color: rgb(73, 64, 231);
   -webkit-touch-callout: none; /* iOS Safari */

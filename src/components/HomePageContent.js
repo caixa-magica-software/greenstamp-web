@@ -40,13 +40,16 @@ const HomePageContent = () => {
         <p className={classes.linkText} onClick={executeScroll}>
           Advanced Results
         </p>
+        <br /><br />
         <FormattedResults />
+        <br />
         <p ref={advRef} className={classes.resultsText}>
           Advanced Results
         </p>
         <p className={classes.linkText} onClick={executeScrollToTop}>
           Ranking
         </p>
+        <br /><br />
         <Results />
       </div>
     </div>
