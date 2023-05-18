@@ -56,14 +56,25 @@
 
 .selecterBox {
   position: relative;
-  top: 46px;
+  top: -61.9px;
 }
 
-.selecterBox button {
+.selecterBox .inactiveTab {
   background-color: white;
   border-radius: 3px;
   border: 2px solid #c7d6be;
-  border-bottom: none;
+  margin: 5px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.selecterBox .activeTab {
+  background-color: #c7d6be;
+  border-radius: 3px;
+  border: 2px solid #c7d6be;
+  margin: 5px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 /* Bottom Container */
