@@ -1,5 +1,5 @@
 import axios from "axios";
-import { dbGetAllFormatted, getAppIcon } from "config/api";
+import { dbGetAllFormatted, getAppInfo } from "config/api";
 import { useEffect, useState } from "react";
 import FormattedTable from "./FormattedTable";
 
@@ -48,7 +48,7 @@ const FormattedResults = () => {
         categories.map((category) => {
           let categoryData = [];
           data.forEach(async (app) => {
-            const res = await axios.get(getAppIcon + app.package);
+            const res = await axios.get(getAppInfo + app.package);
             const icon = res.data.nodes.meta.data.icon;
             app.icon = (
               <img

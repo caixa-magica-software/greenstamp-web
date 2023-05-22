@@ -2,6 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import FormattedResults from "./FormattedResults";
 import classes from "./HomePageContent.module.css";
 import Results from "./Results";
+import AnalyzeApp from "./AnalyzeApp";
 
 const HomePageContent = () => {
   const packageNameRef = useRef();
@@ -81,9 +82,7 @@ const HomePageContent = () => {
               placeholder="Package Name"
               ref={packageNameRef}
             />
-            <button>
-              <img src="/image.png" alt="search" />
-            </button>
+            <AnalyzeApp package={packageNameRef} />
           </div>
         )}
         {tab === 0 && (

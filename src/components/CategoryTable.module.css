@@ -36,6 +36,7 @@
   background-color: rgb(84, 184, 84);
 
   color: rgb(242, 234, 234);
+  text-shadow: 0px 0px 2px black;
 
   font-size: clamp(1rem, 1.1vw, 1.4rem);
 }
