@@ -44,7 +44,7 @@ const HomePageContent = () => {
   const toTop = () => topRef.current.scrollIntoView();
 
   return (
-    <div className={classes.body}>
+    <div>
       <div className={classes.topBox} ref={topRef}>
         <img
           className={classes.logoImg}
@@ -61,52 +61,60 @@ const HomePageContent = () => {
         </p>
       </div>
 
-      <div className={classes.bottomBox}>
-        <div className={classes.selecterBox}>
-          <button value={0} className={appRanking} onClick={switchTabs}>
-            App Ranking
-          </button>
-          <button value={1} className={advResults} onClick={switchTabs}>
-            Advanced Results
-          </button>
-          <button value={2} className={analyzeBox} onClick={switchTabs}>
-            Analyze Package
-          </button>
+      <Fragment>
+        <div className={classes.bottomBox}>
+          <div className={classes.selecterBox}>
+            <button value={0} className={appRanking} onClick={switchTabs}>
+              App Ranking
+            </button>
+            <button value={1} className={advResults} onClick={switchTabs}>
+              Advanced Results
+            </button>
+            <button value={2} className={analyzeBox} onClick={switchTabs}>
+              Analyze Package
+            </button>
+          </div>
         </div>
 
         {tab === 2 && (
-          <div className={classes.searchBox}>
-            <input
-              type="text"
-              placeholder="Package Name"
-              ref={packageNameRef}
-            />
-            <button>
-              <img src="/image.png" alt="search" />
-            </button>
+          <div className={classes.bottomBoxAlt}>
+            <div className={classes.searchBox}>
+              <input
+                type="text"
+                placeholder="Package Name"
+                ref={packageNameRef}
+              />
+              <button>
+                <img src="/image.png" alt="search" />
+              </button>
+            </div>
           </div>
         )}
         {tab === 0 && (
           <Fragment>
-            <p className={classes.rankingText}>Ranking</p>
-            <FormattedResults />
-            <br />
-            <p className={classes.linkText} onClick={toTop}>
-              Back to top
-            </p>
+            <div className={classes.bottomBoxAlt}>
+              <p className={classes.rankingText}>Ranking</p>
+              <FormattedResults />
+              <br />
+              <p className={classes.linkText} onClick={toTop}>
+                Back to top
+              </p>
+            </div>
           </Fragment>
         )}
         {tab === 1 && (
           <Fragment>
-            <p className={classes.resultsText}>Advanced Results</p>
-            <Results />
-            <br />
-            <p className={classes.linkText} onClick={toTop}>
-              Back to top
-            </p>
+            <div className={classes.bottomBoxAlt}>
+              <p className={classes.resultsText}>Advanced Results</p>
+              <Results />
+              <br />
+              <p className={classes.linkText} onClick={toTop}>
+                Back to top
+              </p>
+            </div>
           </Fragment>
         )}
-      </div>
+      </Fragment>
     </div>
   );
 };
