@@ -51,7 +51,7 @@ const HomePageContent = () => {
           className={classes.logoImg}
           onClick={reload}
           src="/logo192.png"
-          alt="Logo"
+          alt="Greenstamp Logo"
         />
         <p className={classes.logoHeader}>Mobile Energy Efficiency Services</p>
         <p className={classes.pageHeader}>Green Stamp</p>
@@ -88,7 +88,8 @@ const HomePageContent = () => {
               <AnalyzeApp package={packageNameRef} />
             </div>
             <br />
-            <p>
+            <br />
+            <p className={classes.helpText}>
               To get an app's package name, find it on the{" "}
               <a
                 href="https://en.aptoide.com"
@@ -98,10 +99,10 @@ const HomePageContent = () => {
                 Aptoide app store
               </a>
             </p>
-            <p>
-              Go to the app's 'Info' section and copy the text next to 'Package'
+            <p className={classes.helpText}>
+              Go to the app's 'Info' section and copy the text next to 'Package'.
             </p>
-            <img src="packageName.png" alt="Package Name Example" />
+            <img className={classes.helpImg} src="packageName.png" alt="Package Name Example" />
           </div>
         )}
         {tab === 0 && (
