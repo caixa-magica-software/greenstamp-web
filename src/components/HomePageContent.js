@@ -87,6 +87,21 @@ const HomePageContent = () => {
               />
               <AnalyzeApp package={packageNameRef} />
             </div>
+            <br />
+            <p>
+              To get an app's package name, find it on the{" "}
+              <a
+                href="https://en.aptoide.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Aptoide app store
+              </a>
+            </p>
+            <p>
+              Go to the app's 'Info' section and copy the text next to 'Package'
+            </p>
+            <img src="packageName.png" alt="Package Name Example" />
           </div>
         )}
         {tab === 0 && (
