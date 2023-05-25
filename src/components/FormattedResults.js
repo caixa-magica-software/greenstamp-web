@@ -53,8 +53,8 @@ const FormattedResults = () => {
             app.icon = (
               <img
                 style={{
-                  height: "48px",
-                  width: "48px",
+                  height: "40x",
+                  width: "40px",
                   marginBottom: "-4px",
                 }}
                 src={icon}
