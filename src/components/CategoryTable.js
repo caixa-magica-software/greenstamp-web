@@ -69,7 +69,7 @@ const CategoryTable = (props) => {
               prepareRow(row);
               return (
                 // Apply the row props
-                <tr {...row.getRowProps()}>
+                <tr className={classes.tableRow} {...row.getRowProps()}>
                   {row.cells.map((cell) => {
                     // Loop over the rows cells
                     return (
