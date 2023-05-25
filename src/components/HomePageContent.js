@@ -89,8 +89,6 @@ const HomePageContent = () => {
               />
               <AnalyzeApp package={packageNameRef} />
             </div>
-            <br />
-            <br />
             <p className={classes.helpText}>
               To get an app's package name, find it on the{" "}
               <a
@@ -110,6 +108,8 @@ const HomePageContent = () => {
               src="packageName.png"
               alt="Package Name Example"
             />
+            <br />
+            <br />
             <p className={classes.linkText} onClick={toTop}>
               Back to top
             </p>
