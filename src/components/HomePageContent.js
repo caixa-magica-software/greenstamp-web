@@ -64,82 +64,79 @@ const HomePageContent = () => {
         </p>
       </div>
 
-      <Fragment>
-        <div className={classes.bottomBox}>
-          <div className={classes.selecterBox}>
-            <button value={0} className={appRanking} onClick={switchTabs}>
-              App Ranking
-            </button>
-            <button value={1} className={advResults} onClick={switchTabs}>
-              Advanced Results
-            </button>
-            <button value={2} className={analyzeBox} onClick={switchTabs}>
-              Analyze Package
-            </button>
-          </div>
+      <div className={classes.bottomBox}>
+        <div className={classes.selecterBox}>
+          <button value={0} className={appRanking} onClick={switchTabs}>
+            App Ranking
+          </button>
+          <button value={1} className={advResults} onClick={switchTabs}>
+            Advanced Results
+          </button>
+          <button value={2} className={analyzeBox} onClick={switchTabs}>
+            Analyze Package
+          </button>
         </div>
+      </div>
 
-        {tab === 2 && (
-          <div className={classes.bottomBoxAlt}>
-            <div className={classes.searchBox}>
-              <input
-                type="text"
-                placeholder="Package Name"
-                ref={packageNameRef}
-              />
-              <AnalyzeApp package={packageNameRef} />
-            </div>
-            <p className={classes.helpText}>
-              To get an app's package name, find it on the{" "}
-              <a
-                href="https://en.aptoide.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Aptoide app store
-              </a>
-            </p>
-            <p className={classes.helpText}>
-              Go to the app's 'Info' section and copy the text next to
-              'Package'.
-            </p>
-            <img
-              className={classes.helpImg}
-              src="packageName.png"
-              alt="Package Name Example"
+      {tab === 2 && (
+        <div className={classes.bottomBoxAlt}>
+          <div className={classes.searchBox}>
+            <input
+              type="text"
+              placeholder="Package Name"
+              ref={packageNameRef}
             />
+            <AnalyzeApp package={packageNameRef} />
+          </div>
+          <p className={classes.helpText}>
+            To get an app's package name, find it on the{" "}
+            <a
+              href="https://en.aptoide.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Aptoide app store
+            </a>
+          </p>
+          <p className={classes.helpText}>
+            Go to the app's 'Info' section and copy the text next to 'Package'.
+          </p>
+          <img
+            className={classes.helpImg}
+            src="packageName.png"
+            alt="Package Name Example"
+          />
+          <br />
+          <br />
+          <p className={classes.linkText} onClick={toTop}>
+            Back to top
+          </p>
+        </div>
+      )}
+      {tab === 0 && (
+        <Fragment>
+          <div className={classes.bottomBoxAlt}>
+            <FormattedResults />
             <br />
             <br />
             <p className={classes.linkText} onClick={toTop}>
               Back to top
             </p>
           </div>
-        )}
-        {tab === 0 && (
-          <Fragment>
-            <div className={classes.bottomBoxAlt}>
-              <p className={classes.rankingText}>Ranking</p>
-              <FormattedResults />
-              <br />
-              <p className={classes.linkText} onClick={toTop}>
-                Back to top
-              </p>
-            </div>
-          </Fragment>
-        )}
-        {tab === 1 && (
-          <Fragment>
-            <div className={classes.bottomBoxAlt}>
-              <p className={classes.resultsText}>Advanced Results</p>
-              <Results />
-              <br />
-              <p className={classes.linkText} onClick={toTop}>
-                Back to top
-              </p>
-            </div>
-          </Fragment>
-        )}
-      </Fragment>
+        </Fragment>
+      )}
+      {tab === 1 && (
+        <Fragment>
+          <div className={classes.bottomBoxAlt}>
+            <Results />
+            <br />
+            <br />
+            <p className={classes.linkText} onClick={toTop}>
+              Back to top
+            </p>
+          </div>
+        </Fragment>
+      )}
     </div>
   );
 };
