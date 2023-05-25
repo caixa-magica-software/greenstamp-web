@@ -71,27 +71,4 @@
     top: 30px;
     width: 400px;
   }
-
-  .tablePosition table {
-    border-top: 2px solid black;
-    border-left: 2px solid black;
-    border-radius: 5px;
-    border-spacing: 0px;
-  }
-  .tablePosition th {
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
-
-    color: black;
-
-    font-size: clamp(1rem, 1.1vw, 1.4rem);
-  }
-
-  .tablePosition td {
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
-
-    color: blue;
-    font-size: clamp(1rem, 1vw, 1.1rem);
-  }
 }
