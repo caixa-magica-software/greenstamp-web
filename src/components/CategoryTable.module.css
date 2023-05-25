@@ -23,6 +23,7 @@
 
 /* Table itself */
 .tablePosition table {
+  width: 1000px;
   border-top: 2px solid black;
   border-left: 2px solid black;
   border-radius: 5px;
