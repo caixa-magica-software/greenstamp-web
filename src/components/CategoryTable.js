@@ -32,9 +32,9 @@ const CategoryTable = (props) => {
 
   return (
     <Fragment>
+      <br /><br />
+      <h1>{props.category}</h1>
       <div className={classes.tablePosition}>
-        <h1>{props.category}</h1>
-        <br />
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
