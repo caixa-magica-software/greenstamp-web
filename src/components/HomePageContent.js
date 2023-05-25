@@ -11,6 +11,7 @@ const HomePageContent = () => {
   const [analyzeBox, setAnalyzeBox] = useState(classes.inactiveTab);
   const [tab, setTab] = useState(0);
 
+  // Tab Switcher
   const switchTabs = (e) => {
     if (tab === parseInt(e.target.value)) return;
     switch (e.target.value) {
@@ -41,6 +42,7 @@ const HomePageContent = () => {
     window.location.reload();
   };
 
+  // Back to Top
   const topRef = useRef(null);
   const toTop = () => topRef.current.scrollIntoView();
 
@@ -100,9 +102,17 @@ const HomePageContent = () => {
               </a>
             </p>
             <p className={classes.helpText}>
-              Go to the app's 'Info' section and copy the text next to 'Package'.
+              Go to the app's 'Info' section and copy the text next to
+              'Package'.
             </p>
-            <img className={classes.helpImg} src="packageName.png" alt="Package Name Example" />
+            <img
+              className={classes.helpImg}
+              src="packageName.png"
+              alt="Package Name Example"
+            />
+            <p className={classes.linkText} onClick={toTop}>
+              Back to top
+            </p>
           </div>
         )}
         {tab === 0 && (
