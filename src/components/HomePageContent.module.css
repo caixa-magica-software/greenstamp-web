@@ -55,25 +55,31 @@
 
 .selecterBox {
   position: relative;
-  top: -59.9px;
+  top: -81.4px;
 }
 
 .selecterBox .inactiveTab {
   background-color: white;
   border-radius: 3px;
-  border: 2px solid #c7d6be;
+  border: 3px solid #c7d6be;
   margin: 5px;
   margin-bottom: 0px;
   margin-top: 0px;
+  font-weight: bold;
+  padding: 8.5px;
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
 }
 
 .selecterBox .activeTab {
   background-color: #c7d6be;
   border-radius: 3px;
-  border: 2px solid #c7d6be;
+  border: 3px solid #c7d6be;
   margin: 5px;
   margin-bottom: 0px;
   margin-top: 0px;
+  font-weight: bold;
+  padding: 8.5px;
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
 }
 
 .selecterBox button:hover {
