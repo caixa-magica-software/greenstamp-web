@@ -53,6 +53,35 @@
   font-size: clamp(1rem, 1.2vw, 1.3rem);
 }
 
+/* Bottom Container */
+.bottomBox {
+  position: absolute;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  top: 480px;
+  width: 100%;
+  height: 83%;
+
+  background-color: #c7d6be;
+
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Bottom Container For The Tabs */
+.bottomBoxAlt {
+  position: absolute;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  top: 480px;
+  width: 100%;
+
+  background-color: #c7d6be;
+
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
 .selecterBox {
   position: relative;
   top: -81.4px;
@@ -84,35 +113,6 @@
 
 .selecterBox button:hover {
   cursor: pointer;
-}
-
-/* Bottom Container */
-.bottomBox {
-  position: absolute;
-  padding-top: 40px;
-  padding-bottom: 50px;
-  top: 480px;
-  width: 100%;
-  height: 83%;
-
-  background-color: #c7d6be;
-
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-/* Bottom Container For The Tabs */
-.bottomBoxAlt {
-  position: absolute;
-  padding-top: 10px;
-  padding-bottom: 50px;
-  top: 480px;
-  width: 100%;
-
-  background-color: #c7d6be;
-
-  text-align: center;
-  font-family: Arial, sans-serif;
 }
 
 /* App Analyzer Container */
@@ -271,7 +271,7 @@
   }
 
   .info1 {
-    width: clamp(4rem, 39vw, 50rem);
+    width: clamp(12rem, 39vw, 50rem);
     display: inline-block;
 
     font-size: clamp(1rem, 1.2vw, 1.3rem);
@@ -287,5 +287,35 @@
 
     text-align: center;
     font-family: Arial, sans-serif;
+  }
+
+  .selecterBox {
+    position: relative;
+    top: -81.4px;
+    max-width: 460px;
+  }
+
+  .selecterBox .inactiveTab {
+    background-color: white;
+    border-radius: 3px;
+    border: 3px solid #c7d6be;
+    margin: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    padding: 10px;
+    font-size: clamp(0.8rem, 1.2vw, 1.5rem);
+  }
+
+  .selecterBox .activeTab {
+    background-color: #c7d6be;
+    border-radius: 3px;
+    border: 3px solid #c7d6be;
+    margin: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    padding: 10px;
+    font-size: clamp(0.8rem, 1.2vw, 1.5rem);
   }
 }
