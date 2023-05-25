@@ -95,6 +95,7 @@
   font-family: Arial, sans-serif;
 }
 
+/* Bottom Container For The Tabs */
 .bottomBoxAlt {
   position: absolute;
   padding-top: 40px;
@@ -108,41 +109,55 @@
   font-family: Arial, sans-serif;
 }
 
+/* App Ranking Selecter */
 .rankingText {
   font-size: clamp(1.6rem, 2.4vw, 3rem);
   font-weight: bold;
   color: black;
 }
 
+/* Advanced Results Selecter */
+.resultsText {
+  font-size: clamp(1.6rem, 2.4vw, 3rem);
+  font-weight: bold;
+  color: black;
+}
+
+/* App Analyzer Container */
 .searchBox {
   display: inline;
 }
 
+/* App Analyzer Input */
 .searchBox input {
   height: 30px;
 }
 
+/* App Analyzer Search Button */
 .searchBox button {
   height: 34px;
   width: 34px;
-}
-
-.searchBox img {
-  height: 16px;
 }
 
 .searchBox button:hover {
   cursor: pointer;
 }
 
-.searchBox img:hover {
-  cursor: pointer;
-}
-
+/* Instruction Text on App Analyzer Tab */
 .helpText {
   font-size: clamp(1rem, 1.2vw, 1.3rem);
 }
 
+/* Example Image on App Analyzer Tab */
+.searchBox img {
+  height: 16px;
+}
+
+.searchBox img:hover {
+  cursor: pointer;
+}
+
+/* Blocks the Selection of the Example Image on Analyzer Tab */
 .helpImg {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -153,6 +168,7 @@
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+/* Back to Top Text */
 .linkText {
   position: absolute;
   left: 50%;
@@ -173,12 +189,6 @@
 
 .linkText:hover {
   cursor: pointer;
-}
-
-.resultsText {
-  font-size: clamp(1.6rem, 2.4vw, 3rem);
-  font-weight: bold;
-  color: black;
 }
 
 /* Media Query for small width devices */
