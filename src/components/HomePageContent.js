@@ -56,7 +56,7 @@ const HomePageContent = () => {
           alt="Greenstamp Logo"
         />
         <p className={classes.logoHeader}>Mobile Energy Efficiency Services</p>
-        <p className={classes.pageHeader}>Green Stamp</p>
+        <p className={classes.pageHeader}>Greenstamp</p>
         <p className={classes.info1}>
           The GreenStamp project aims to investigate and develop innovative
           mechanisms for analyzing and cataloging the energy efficiency of
