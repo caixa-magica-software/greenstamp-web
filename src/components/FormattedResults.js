@@ -50,16 +50,28 @@ const FormattedResults = () => {
           data.forEach(async (app) => {
             const res = await axios.get(getAppInfo + app.package);
             const icon = res.data.nodes.meta.data.icon;
+
+            const allUrls = res.data.nodes.meta.data.urls;
+            const urlKey = Object.keys(allUrls)[0];
+            let url = allUrls[urlKey];
+
+            let index = url.indexOf(".com");
+            if (index !== -1) {
+              url = url.substring(0, index + 4);
+            }
+
             app.icon = (
-              <img
-                style={{
-                  height: "40x",
-                  width: "40px",
-                  marginBottom: "-4px",
-                }}
-                src={icon}
-                alt={app.app_name}
-              />
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                <img
+                  style={{
+                    height: "40x",
+                    width: "40px",
+                    marginBottom: "-4px",
+                  }}
+                  src={icon}
+                  alt={app.app_name}
+                />
+              </a>
             );
 
             const match = app.categories.includes(category);
