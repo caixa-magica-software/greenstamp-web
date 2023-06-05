@@ -9,25 +9,32 @@ const AnalyzeApp = (props) => {
   const [color, setColor] = useState({ color: "red" });
 
   const Analyze = async () => {
-    const analyzeRes = await axios.post(analyzeApp, {
-      packageName: packageName.current.value,
-    });
+    try {
+      const analyzeRes = await axios.post(analyzeApp, {
+        packageName: packageName.current.value,
+      });
 
-    if (!analyzeRes) return;
+      if (!analyzeRes) return;
 
-    setRequest(true);
-    setTimeout(() => {
-      setRequest(false);
-    }, 5000);
+      setRequest(true);
+      setTimeout(() => {
+        setRequest(false);
+      }, 5000);
 
-    if (analyzeRes.status !== 200) return;
+      if (analyzeRes.status !== 200) return;
 
-    setSuccess(true);
-    setColor({ color: "green" });
-    setTimeout(() => {
-      setSuccess(false);
-      setColor({ color: "red" });
-    }, 5000);
+      setSuccess(true);
+      setColor({ color: "green" });
+      setTimeout(() => {
+        setSuccess(false);
+        setColor({ color: "red" });
+      }, 5000);
+    } catch {
+      setRequest(true);
+      setTimeout(() => {
+        setRequest(false);
+      }, 5000);
+    }
   };
 
   return (
