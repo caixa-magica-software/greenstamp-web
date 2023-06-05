@@ -67,6 +67,7 @@ const FormattedResults = () => {
                     height: "40x",
                     width: "40px",
                     marginBottom: "-4px",
+                    borderRadius: "3.5px",
                   }}
                   src={icon}
                   alt={app.app_name}
