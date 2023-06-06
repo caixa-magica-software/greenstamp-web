@@ -1,6 +1,7 @@
 FROM node:14-alpine
 
 RUN mkdir /web
+
 # Create app directory
 WORKDIR /web
 
