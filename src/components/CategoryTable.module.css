@@ -1,0 +1,76 @@
+/* Blocks Element Selection */
+.noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.tablePosition {
+  display: inline-block;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: auto;
+  top: 30px;
+}
+
+.tablePosition h1 {
+  font-size: clamp(1.4rem, 1.8vw, 2rem);
+}
+
+/* Table itself */
+.tablePosition table {
+  width: 1000px;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-radius: 5px;
+  border-spacing: 0px;
+}
+
+/* Table headers */
+.tablePosition th {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+
+  /* background-color: rgb(84, 184, 84); */
+  background-color: #388638;
+
+  padding: 10px;
+
+  color: rgb(242, 234, 234);
+  /* text-shadow: 0px 0px 2px black; */
+
+  font-size: clamp(1rem, 1.1vw, 1.4rem);
+}
+
+.tablePosition .tableRow:nth-of-type(even){
+  background-color: #EEEEEE;
+}
+
+.tablePosition .tableRow:nth-of-type(odd){
+  background-color: white;
+}
+
+/* Table td*/
+.tablePosition td {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+
+  padding: 5px;
+
+  color: black;
+  font-size: clamp(1rem, 1vw, 1.1rem);
+}
+
+/* Media Query for small width devices */
+@media only screen and (max-width: 1032px) {
+  .tablePosition {
+    display: inline-block;
+
+    top: 30px;
+    width: 400px;
+  }
+}

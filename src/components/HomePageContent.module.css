@@ -1,0 +1,321 @@
+/* Top Container */
+.topBox {
+  position: absolute;
+  width: 100%;
+
+  padding-top: 70px;
+
+  text-align: center;
+  font-family: Arial, sans-serif;
+
+  background-color: white;
+}
+
+.logoImg {
+  position: absolute;
+  width: clamp(3rem, 6.2vw, 8rem);
+  top: 30px;
+  left: 40px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.logoImg:hover {
+  cursor: pointer;
+}
+
+.logoHeader {
+  position: absolute;
+  top: 45px;
+  left: 165px;
+
+  color: #6d6d6d;
+
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+}
+
+.pageHeader {
+  font-weight: 800;
+  font-size: clamp(1rem, 3.4vw, 4rem);
+
+  color: black;
+}
+
+.info1 {
+  width: clamp(4rem, 39vw, 50rem);
+  display: inline-block;
+
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+}
+
+/* Bottom Container */
+.bottomBox {
+  position: absolute;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  top: 480px;
+  width: 100%;
+  height: 83%;
+
+  background-color: #c7d6be;
+
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Bottom Container For The Tabs */
+.bottomBoxAlt {
+  position: absolute;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  top: 480px;
+  width: 100%;
+
+  background-color: #c7d6be;
+
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.selecterBox {
+  position: relative;
+  top: -81.4px;
+}
+
+.selecterBox .inactiveTab {
+  background-color: white;
+  border-radius: 3px;
+  border: 3px solid #c7d6be;
+  margin: 5px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-weight: bold;
+  padding: 8.5px;
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
+}
+
+.selecterBox .activeTab {
+  background-color: #c7d6be;
+  border-radius: 3px;
+  border: 3px solid #c7d6be;
+  margin: 5px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-weight: bold;
+  padding: 8.5px;
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
+}
+
+.selecterBox button:hover {
+  cursor: pointer;
+}
+
+/* App Analyzer Container */
+.searchBox {
+  display: inline;
+}
+
+/* App Analyzer Input */
+.searchBox input {
+  margin-top: 30px;
+  height: 30px;
+}
+
+/* App Analyzer Search Button */
+.searchBox button {
+  height: 34px;
+  width: 34px;
+}
+
+.searchBox button:hover {
+  cursor: pointer;
+}
+
+/* Instruction Text on App Analyzer Tab */
+.helpText {
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+}
+
+/* Example Image on App Analyzer Tab */
+.searchBox img {
+  height: 16px;
+}
+
+.searchBox img:hover {
+  cursor: pointer;
+}
+
+/* Blocks the Selection of the Example Image on Analyzer Tab */
+.helpImg {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  border-radius: 3px;
+}
+
+/* Back to Top Text */
+.linkText {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: max-content;
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.linkText:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Media Query for small width devices */
+@media only screen and (max-width: 1032px) {
+  .topBox {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+
+    padding-top: 100px;
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+
+    background-color: white;
+  }
+
+  .logoHeader {
+    position: absolute;
+    top: 28px;
+    left: 115px;
+
+    color: #6d6d6d;
+
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+  }
+
+  .pageHeader {
+    font-weight: 800;
+    font-size: clamp(1rem, 3.4vw, 4rem);
+
+    color: black;
+  }
+
+  .info1 {
+    width: clamp(4rem, 39vw, 50rem);
+    display: inline-block;
+
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
+  }
+
+  .bottomBox {
+    position: absolute;
+    padding-top: 40px;
+    top: 400px;
+    width: 100%;
+
+    background-color: #c7d6be;
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+}
+
+/* Media Query for very small width devices */
+@media only screen and (max-width: 632px) {
+  .topBox {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+
+    padding-top: 100px;
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+
+    background-color: white;
+  }
+
+  .logoHeader {
+    position: absolute;
+    top: 28px;
+    left: 115px;
+
+    color: #6d6d6d;
+
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+  }
+
+  .pageHeader {
+    font-weight: 800;
+    font-size: clamp(1rem, 3.4vw, 4rem);
+
+    color: black;
+  }
+
+  .info1 {
+    width: clamp(12rem, 39vw, 50rem);
+    display: inline-block;
+
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
+  }
+
+  .bottomBox {
+    position: absolute;
+    padding-top: 40px;
+    top: 400px;
+    width: 100%;
+
+    background-color: #c7d6be;
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+
+  .selecterBox {
+    position: relative;
+    top: -81.4px;
+    max-width: 460px;
+  }
+
+  .selecterBox .inactiveTab {
+    background-color: white;
+    border-radius: 3px;
+    border: 3px solid #c7d6be;
+    margin: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    padding: 10px;
+    font-size: clamp(0.8rem, 1.2vw, 1.5rem);
+  }
+
+  .selecterBox .activeTab {
+    background-color: #c7d6be;
+    border-radius: 3px;
+    border: 3px solid #c7d6be;
+    margin: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    padding: 10px;
+    font-size: clamp(0.8rem, 1.2vw, 1.5rem);
+  }
+}
