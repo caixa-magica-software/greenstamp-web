@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  web:
+    container_name: web
+    image: web
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    network_mode: "host"
+    ports:
+      - 3001:3001
