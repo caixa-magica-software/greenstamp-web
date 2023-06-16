@@ -11,3 +11,5 @@ services:
     restart: unless-stopped
     ports:
       - 3001:3001
+    environment:
+      DEVELOPER_SERVICE: 'http://51.210.255.156:3000'
