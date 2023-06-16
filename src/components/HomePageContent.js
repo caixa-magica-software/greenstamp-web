@@ -109,7 +109,7 @@ const HomePageContent = () => {
           <br />
           <br />
           <p className={classes.linkText} onClick={toTop}>
-              Back to top 🠕
+              Back to top
             </p>
         </div>
       )}
@@ -120,7 +120,7 @@ const HomePageContent = () => {
             <br />
             <br />
             <p className={classes.linkText} onClick={toTop}>
-              Back to top 🠕
+              Back to top
             </p>
           </div>
         </Fragment>
@@ -132,7 +132,7 @@ const HomePageContent = () => {
             <br />
             <br />
             <p className={classes.linkText} onClick={toTop}>
-              Back to top 🠕
+              Back to top
             </p>
           </div>
         </Fragment>
