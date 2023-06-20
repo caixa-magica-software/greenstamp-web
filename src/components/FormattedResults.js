@@ -11,7 +11,19 @@ const FormattedResults = () => {
   const fetchFormatted = async () => {
     const res = await axios.get(dbGetAllFormatted);
     const response = res.data.data;
-    setData(response);
+
+    const updatedApps = [];
+    for (const app of response) {
+      const res = await axios.get(getAppInfo + app.package);
+      const allUrls = res.data.data.nodes.meta.data.urls;
+      const urlKey = Object.keys(allUrls)[0];
+      updatedApps.push({ 
+        ...app, 
+        appUrl: allUrls[urlKey], 
+        appIcon: res.data.data.nodes.meta.data.icon 
+      });
+    }
+    setData(updatedApps);
 
     // finds all categories and pushes them into an array
     let categoriesArray = [];
@@ -48,12 +60,8 @@ const FormattedResults = () => {
         categories.map((category) => {
           let categoryData = [];
           data.forEach(async (app) => {
-            const res = await axios.get(getAppInfo + app.package);
-            const icon = res.data.nodes.meta.data.icon;
-
-            const allUrls = res.data.nodes.meta.data.urls;
-            const urlKey = Object.keys(allUrls)[0];
-            let url = allUrls[urlKey];
+            const icon = app.appIcon;
+            let url = app.appUrl;
 
             let index = url.indexOf(".com");
             if (index !== -1) {
