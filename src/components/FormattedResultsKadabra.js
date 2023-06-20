@@ -1,5 +1,5 @@
 import axios from "axios";
-import { dbGetAllFormatted, getAppInfo } from "config/api";
+import { dbGetAllFormattedKadabra, getAppInfo } from "config/api";
 import { useEffect, useState } from "react";
 import FormattedTable from "./FormattedTable";
 
@@ -9,7 +9,7 @@ const FormattedResults = () => {
 
   // Fetches formatted app data with rankings
   const fetchFormatted = async () => {
-    const res = await axios.get(dbGetAllFormatted);
+    const res = await axios.get(dbGetAllFormattedKadabra);
     const response = res.data.data;
 
     const updatedApps = [];

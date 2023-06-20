@@ -1,12 +1,14 @@
 import { Fragment, useRef, useState } from "react";
-import FormattedResults from "./FormattedResults";
+import FormattedResultsKadabra from "./FormattedResultsKadabra";
+import FormattedResultsWcec from "./FormattedResultsWcec";
 import classes from "./HomePageContent.module.css";
 import Results from "./Results";
 import AnalyzeApp from "./AnalyzeApp";
 
 const HomePageContent = () => {
   const packageNameRef = useRef();
-  const [appRanking, setAppRanking] = useState(classes.activeTab);
+  const [appRanking1, setAppRanking1] = useState(classes.activeTab);
+  const [appRanking2, setAppRanking2] = useState(classes.inactiveTab);
   const [advResults, setAdvResults] = useState(classes.inactiveTab);
   const [analyzeBox, setAnalyzeBox] = useState(classes.inactiveTab);
   const [tab, setTab] = useState(0);
@@ -16,22 +18,32 @@ const HomePageContent = () => {
     if (tab === parseInt(e.target.value)) return;
     switch (e.target.value) {
       case "0":
-        setAppRanking(classes.activeTab);
+        setAppRanking1(classes.activeTab);
+        setAppRanking2(classes.inactiveTab);
         setAdvResults(classes.inactiveTab);
         setAnalyzeBox(classes.inactiveTab);
         setTab(0);
         break;
       case "1":
-        setAppRanking(classes.inactiveTab);
-        setAdvResults(classes.activeTab);
+        setAppRanking1(classes.inactiveTab);
+        setAppRanking2(classes.activeTab);
+        setAdvResults(classes.inactiveTab);
         setAnalyzeBox(classes.inactiveTab);
         setTab(1);
         break;
       case "2":
-        setAppRanking(classes.inactiveTab);
+        setAppRanking1(classes.inactiveTab);
+        setAppRanking2(classes.inactiveTab);
+        setAdvResults(classes.activeTab);
+        setAnalyzeBox(classes.inactiveTab);
+        setTab(2);
+        break;
+      case "3":
+        setAppRanking1(classes.inactiveTab);
+        setAppRanking2(classes.inactiveTab);
         setAdvResults(classes.inactiveTab);
         setAnalyzeBox(classes.activeTab);
-        setTab(2);
+        setTab(3);
         break;
       default:
         break;
@@ -66,19 +78,22 @@ const HomePageContent = () => {
 
       <div className={classes.bottomBox}>
         <div className={classes.selecterBox}>
-          <button value={0} className={appRanking} onClick={switchTabs}>
-            App Ranking
+          <button value={0} className={appRanking1} onClick={switchTabs}>
+            App Ranking Kadabra
           </button>
-          <button value={1} className={advResults} onClick={switchTabs}>
+          <button value={1} className={appRanking2} onClick={switchTabs}>
+            App Ranking Wcec
+          </button>
+          <button value={2} className={advResults} onClick={switchTabs}>
             Advanced Results
           </button>
-          <button value={2} className={analyzeBox} onClick={switchTabs}>
+          <button value={3} className={analyzeBox} onClick={switchTabs}>
             Analyze Package
           </button>
         </div>
       </div>
 
-      {tab === 2 && (
+      {tab === 3 && (
         <div className={classes.bottomBoxAlt}>
           <div className={classes.searchBox}>
             <input
@@ -113,10 +128,10 @@ const HomePageContent = () => {
             </p>
         </div>
       )}
-      {tab === 0 && (
+      {tab === 1 && (
         <Fragment>
           <div className={classes.bottomBoxAlt}>
-            <FormattedResults />
+            <FormattedResultsWcec />
             <br />
             <br />
             <p className={classes.linkText} onClick={toTop}>
@@ -125,7 +140,19 @@ const HomePageContent = () => {
           </div>
         </Fragment>
       )}
-      {tab === 1 && (
+      {tab === 0 && (
+        <Fragment>
+          <div className={classes.bottomBoxAlt}>
+            <FormattedResultsKadabra />
+            <br />
+            <br />
+            <p className={classes.linkText} onClick={toTop}>
+              Back to top
+            </p>
+          </div>
+        </Fragment>
+      )}
+      {tab === 2 && (
         <Fragment>
           <div className={classes.bottomBoxAlt}>
             <Results />
