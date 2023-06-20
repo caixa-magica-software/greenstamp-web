@@ -87,10 +87,6 @@ const ResultsTable = (props) => {
     appData.forEach((app) => {
       if (app.test_result === null) app.test_result = "X";
 
-      const date = new Date(app.timestamp);
-      const timestamp = date.toLocaleString();
-      app.timestamp = timestamp;
-
       tempArray.push(app);
     });
     setDataArray(tempArray);
