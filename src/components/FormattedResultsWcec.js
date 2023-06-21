@@ -83,7 +83,7 @@ const FormattedResults = () => {
               </a>
             );
 
-            const match = app.categories.includes(category);
+            const match = app.categories?.includes(category);
             if (match === true) categoryData.push(app);
           });
 
