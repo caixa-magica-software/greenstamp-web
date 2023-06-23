@@ -32,7 +32,7 @@ const ResultsTable = (props) => {
         accessor: "timestamp",
       },
       {
-        Header: "Parameter",
+        Header: "Analyzer",
         accessor: "test_parameter",
       },
       {
