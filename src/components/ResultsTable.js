@@ -32,12 +32,12 @@ const ResultsTable = (props) => {
         accessor: "timestamp",
       },
       {
-        Header: "Test",
-        accessor: "test_name",
-      },
-      {
         Header: "Parameter",
         accessor: "test_parameter",
+      },
+      {
+        Header: "Test",
+        accessor: "test_name",
       },
       {
         Header: "Result",
