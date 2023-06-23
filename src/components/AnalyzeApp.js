@@ -6,7 +6,7 @@ const AnalyzeApp = (props) => {
   const packageName = props.package;
   const [request, setRequest] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [color, setColor] = useState({ color: "red" });
+  const [color, setColor] = useState({ color: "green" });
 
   const Analyze = async () => {
     try {
@@ -43,11 +43,11 @@ const AnalyzeApp = (props) => {
         <img src="/image.png" alt="search" />
       </button>
       {request === true && (
-        <p style={color}>
+        <h1 style={color}>
           {success === true
-            ? "App sent to analyzers!"
+            ? "App sent to analyzers! Results will be visible in results page as soon the test finished. Some test take so long. Please be patiente."
             : "Failed to send app to analyzers!"}
-        </p>
+        </h1>
       )}
     </Fragment>
   );
