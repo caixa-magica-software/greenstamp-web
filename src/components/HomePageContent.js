@@ -1,6 +1,7 @@
 import { Fragment, useRef, useState } from "react";
 import FormattedResultsKadabra from "./FormattedResultsKadabra";
 import FormattedResultsWcec from "./FormattedResultsWcec";
+import FormattedResultsEarmo from "./FormattedResultsEarmo";
 import classes from "./HomePageContent.module.css";
 import Results from "./Results";
 import AnalyzeApp from "./AnalyzeApp";
@@ -9,6 +10,7 @@ const HomePageContent = () => {
   const packageNameRef = useRef();
   const [appRanking1, setAppRanking1] = useState(classes.activeTab);
   const [appRanking2, setAppRanking2] = useState(classes.inactiveTab);
+  const [appRanking3, setAppRanking3] = useState(classes.inactiveTab);
   const [advResults, setAdvResults] = useState(classes.inactiveTab);
   const [analyzeBox, setAnalyzeBox] = useState(classes.inactiveTab);
   const [tab, setTab] = useState(0);
@@ -20,6 +22,7 @@ const HomePageContent = () => {
       case "0":
         setAppRanking1(classes.activeTab);
         setAppRanking2(classes.inactiveTab);
+        setAppRanking3(classes.inactiveTab);
         setAdvResults(classes.inactiveTab);
         setAnalyzeBox(classes.inactiveTab);
         setTab(0);
@@ -27,6 +30,7 @@ const HomePageContent = () => {
       case "1":
         setAppRanking1(classes.inactiveTab);
         setAppRanking2(classes.activeTab);
+        setAppRanking3(classes.inactiveTab);
         setAdvResults(classes.inactiveTab);
         setAnalyzeBox(classes.inactiveTab);
         setTab(1);
@@ -34,16 +38,26 @@ const HomePageContent = () => {
       case "2":
         setAppRanking1(classes.inactiveTab);
         setAppRanking2(classes.inactiveTab);
-        setAdvResults(classes.activeTab);
+        setAppRanking3(classes.activeTab);
+        setAdvResults(classes.inactiveTab);
         setAnalyzeBox(classes.inactiveTab);
         setTab(2);
         break;
       case "3":
         setAppRanking1(classes.inactiveTab);
         setAppRanking2(classes.inactiveTab);
+        setAppRanking3(classes.inactiveTab);
+        setAdvResults(classes.activeTab);
+        setAnalyzeBox(classes.inactiveTab);
+        setTab(3);
+        break;
+      case "4":
+        setAppRanking1(classes.inactiveTab);
+        setAppRanking2(classes.inactiveTab);
+        setAppRanking3(classes.inactiveTab);
         setAdvResults(classes.inactiveTab);
         setAnalyzeBox(classes.activeTab);
-        setTab(3);
+        setTab(4);
         break;
       default:
         break;
@@ -84,16 +98,19 @@ const HomePageContent = () => {
           <button value={1} className={appRanking2} onClick={switchTabs}>
             App Ranking Wcec
           </button>
-          <button value={2} className={advResults} onClick={switchTabs}>
+          <button value={2} className={appRanking3} onClick={switchTabs}>
+            App Ranking Earmo
+          </button>
+          <button value={3} className={advResults} onClick={switchTabs}>
             Advanced Results
           </button>
-          <button value={3} className={analyzeBox} onClick={switchTabs}>
+          <button value={4} className={analyzeBox} onClick={switchTabs}>
             Analyze Package
           </button>
         </div>
       </div>
 
-      {tab === 3 && (
+      {tab === 4 && (
         <div className={classes.bottomBoxAlt}>
           <div className={classes.searchBox}>
             <input
@@ -128,6 +145,18 @@ const HomePageContent = () => {
             </p>
         </div>
       )}
+      {tab === 2 && (
+        <Fragment>
+          <div className={classes.bottomBoxAlt}>
+            <FormattedResultsEarmo />
+            <br />
+            <br />
+            <p className={classes.linkText} onClick={toTop}>
+              Back to top
+            </p>
+          </div>
+        </Fragment>
+      )}
       {tab === 1 && (
         <Fragment>
           <div className={classes.bottomBoxAlt}>
@@ -152,7 +181,7 @@ const HomePageContent = () => {
           </div>
         </Fragment>
       )}
-      {tab === 2 && (
+      {tab === 3 && (
         <Fragment>
           <div className={classes.bottomBoxAlt}>
             <Results />
