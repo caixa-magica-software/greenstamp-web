@@ -45,8 +45,8 @@ const AnalyzeApp = (props) => {
       {request === true && (
         <h2 style={color}>
           {success === true
-            ? "This APP already have results in the results page. Analyzers will run again."
-            : "pp sent to analyzers! Results will be visible in results page as soon the test finished. Some test take so long. Please be patiente."}
+            ? "This Application already have results in the results page. \nAnalyzers will run again."
+            : "Application sent to analyzers! \nResults will be visible in results page as soon the test finished. Some test take so long. Please be patiente."}
         </h2>
       )}
     </Fragment>
