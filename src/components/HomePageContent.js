@@ -86,10 +86,13 @@ const HomePageContent = () => {
         <p className={classes.info1}>
           The GreenStamp project aims to investigate and develop innovative
           mechanisms for analyzing and cataloging the energy efficiency of
-          mobile applications integrated into app store processes.
+          mobile applications integrated into app store processes. 
+          
+          Here, you can search for results or submit an APK for analysis. Alternatively, 
+          you have the option to download an Android APK to test your installed applications.
+          Download <a href="/greenstamp-v1.1-30-06-2023.apk" download>Here</a>.
         </p>
       </div>
-
       <div className={classes.bottomBox}>
         <div className={classes.selecterBox}>
           <button value={0} className={appRanking1} onClick={switchTabs}>
