@@ -43,11 +43,11 @@ const AnalyzeApp = (props) => {
         <img src="/image.png" alt="search" />
       </button>
       {request === true && (
-        <h1 style={color}>
+        <h2 style={color}>
           {success === true
             ? "App sent to analyzers! Results will be visible in results page as soon the test finished. Some test take so long. Please be patiente."
             : "Failed to send app to analyzers!"}
-        </h1>
+        </h2>
       )}
     </Fragment>
   );
