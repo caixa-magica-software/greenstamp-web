@@ -35,7 +35,7 @@ const FormattedTable = (props) => {
         accessor: "timestamp",
       },
       {
-        Header: "Total Warnings",
+        Header: "Total detections",
         accessor: "sum",
       },
       {
