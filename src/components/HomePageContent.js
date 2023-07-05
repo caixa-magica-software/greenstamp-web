@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import FormattedResultsKadabra from "./FormattedResultsKadabra";
 import FormattedResultsWcec from "./FormattedResultsWcec";
 import FormattedResultsEarmo from "./FormattedResultsEarmo";
@@ -86,11 +86,14 @@ const HomePageContent = () => {
         <p className={classes.info1}>
           The GreenStamp project aims to investigate and develop innovative
           mechanisms for analyzing and cataloging the energy efficiency of
-          mobile applications integrated into app store processes. 
-          
-          Here, you can search for results or submit an APK for analysis. Alternatively, 
-          you have the option to download an Android APK to test your installed applications.
-          Download <a href="/greenstamp-v1.1-30-06-2023.apk" download>Here</a>.
+          mobile applications integrated into app store processes. Here, you can
+          search for results or submit an APK for analysis. Alternatively, you
+          have the option to download an Android APK to test your installed
+          applications. Download{" "}
+          <a href="/greenstamp-v1.1-30-06-2023.apk" download>
+            Here
+          </a>
+          .
         </p>
       </div>
       <div className={classes.bottomBox}>
@@ -144,58 +147,58 @@ const HomePageContent = () => {
           <br />
           <br />
           <p className={classes.linkText} onClick={toTop}>
-              Back to top
-            </p>
+            Back to top
+          </p>
         </div>
       )}
-      {tab === 2 && (
-        <Fragment>
-          <div className={classes.bottomBoxAlt}>
-            <FormattedResultsEarmo />
-            <br />
-            <br />
-            <p className={classes.linkText} onClick={toTop}>
-              Back to top
-            </p>
-          </div>
-        </Fragment>
-      )}
-      {tab === 1 && (
-        <Fragment>
-          <div className={classes.bottomBoxAlt}>
-            <FormattedResultsWcec />
-            <br />
-            <br />
-            <p className={classes.linkText} onClick={toTop}>
-              Back to top
-            </p>
-          </div>
-        </Fragment>
-      )}
-      {tab === 0 && (
-        <Fragment>
-          <div className={classes.bottomBoxAlt}>
-            <FormattedResultsKadabra />
-            <br />
-            <br />
-            <p className={classes.linkText} onClick={toTop}>
-              Back to top
-            </p>
-          </div>
-        </Fragment>
-      )}
-      {tab === 3 && (
-        <Fragment>
-          <div className={classes.bottomBoxAlt}>
-            <Results />
-            <br />
-            <br />
-            <p className={classes.linkText} onClick={toTop}>
-              Back to top
-            </p>
-          </div>
-        </Fragment>
-      )}
+
+      <div
+        className={classes.bottomBoxAlt}
+        style={{ display: tab === 2 ? "block" : "none" }}
+      >
+        <FormattedResultsEarmo />
+        <br />
+        <br />
+        <p className={classes.linkText} onClick={toTop}>
+          Back to top
+        </p>
+      </div>
+
+      <div
+        className={classes.bottomBoxAlt}
+        style={{ display: tab === 1 ? "block" : "none" }}
+      >
+        <FormattedResultsWcec />
+        <br />
+        <br />
+        <p className={classes.linkText} onClick={toTop}>
+          Back to top
+        </p>
+      </div>
+
+      <div
+        className={classes.bottomBoxAlt}
+        style={{ display: tab === 0 ? "block" : "none" }}
+      >
+        <FormattedResultsKadabra />
+        <br />
+        <br />
+        <p className={classes.linkText} onClick={toTop}>
+          Back to top
+        </p>
+      </div>
+
+      <div
+        className={classes.bottomBoxAlt}
+        style={{ display: tab === 3 ? "block" : "none" }}
+      >
+        <Results />
+        <br />
+        <br />
+        <p className={classes.linkText} onClick={toTop}>
+          Back to top
+        </p>
+      </div>
     </div>
   );
 };
