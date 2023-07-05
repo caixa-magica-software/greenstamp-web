@@ -1,24 +1,28 @@
 import axios from "axios";
 import { dbGetAll } from "config/api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ResultsTable from "./ResultsTable";
 
 const Results = () => {
   const [data, setData] = useState();
   const [categories, setCategories] = useState();
+  const fetched = useRef(false);
 
   // Fetches formatted app data with rankings
   const fetchResults = async () => {
     const res = await axios.get(dbGetAll);
-    const response = res.data;
-    setData(response);
+    let response = res.data;
 
     // finds all categories and pushes them into an array
     let categoriesArray = [];
     response.forEach((app) => {
+      if (app.category === null) app.category = "other";
+
       if (!categoriesArray.includes(app.category))
         categoriesArray.push(app.category);
     });
+
+    setData(response);
 
     // sorts categories alphabetically, leaving "other" at the end
     categoriesArray.sort((a, b) => {
@@ -30,6 +34,8 @@ const Results = () => {
   };
 
   useEffect(() => {
+    if (fetched.current === true) return;
+    fetched.current = true;
     fetchResults();
   }, []);
 

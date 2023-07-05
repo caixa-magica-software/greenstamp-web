@@ -1,33 +1,33 @@
 import axios from "axios";
 import { dbGetAllFormattedWcec, getAppInfo } from "config/api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import FormattedTable from "./FormattedTable";
 
 const FormattedResults = () => {
   const [data, setData] = useState();
   const [categories, setCategories] = useState();
+  const fetched = useRef(false);
 
   // Fetches formatted app data with rankings
   const fetchFormatted = async () => {
     const res = await axios.get(dbGetAllFormattedWcec);
     const response = res.data.data;
 
-    const updatedApps = [];
+    let updatedApps = [];
     for (const app of response) {
       const res = await axios.get(getAppInfo + app.package);
       const allUrls = res.data.data.nodes.meta.data.urls;
       const urlKey = Object.keys(allUrls)[0];
-      updatedApps.push({ 
-        ...app, 
-        appUrl: allUrls[urlKey], 
-        appIcon: res.data.data.nodes.meta.data.icon 
+      updatedApps.push({
+        ...app,
+        appUrl: allUrls[urlKey],
+        appIcon: res.data.data.nodes.meta.data.icon,
       });
     }
-    setData(updatedApps);
 
     // finds all categories and pushes them into an array
     let categoriesArray = [];
-    response.forEach((app) => {
+    updatedApps.forEach((app) => {
       if (typeof app.categories === "string") {
         app.categories = JSON.parse(app.categories);
       }
@@ -41,6 +41,8 @@ const FormattedResults = () => {
       });
     });
 
+    setData(updatedApps);
+
     // sorts categories alphabetically, leaving "other" at the end
     categoriesArray.sort((a, b) => {
       if (a === "other") return 1;
@@ -51,6 +53,8 @@ const FormattedResults = () => {
   };
 
   useEffect(() => {
+    if (fetched.current === true) return;
+    fetched.current = true;
     fetchFormatted();
   }, []);
 
