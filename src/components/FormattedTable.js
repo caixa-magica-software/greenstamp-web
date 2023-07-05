@@ -70,8 +70,8 @@ const FormattedTable = (props) => {
     if (tableData && tableData.length > 0) return;
 
     // ranks the apps within their category
-    appData.sort((a, b) => a.ranking - b.ranking);
-    let prevRanking = -1;
+    appData.sort((a, b) => a.sum - b.sum);
+    let prevSum = -1;
     let rank = 1;
     let tempArray = [];
     appData.forEach((app) => {
@@ -89,11 +89,11 @@ const FormattedTable = (props) => {
         return;
       }
 
-      if (app.ranking !== prevRanking && prevRanking !== -1) {
+      if (app.sum !== prevSum && prevSum !== -1) {
         rank++;
       }
 
-      prevRanking = app.ranking;
+      prevSum = app.sum;
       app.ranking = rank;
 
       tempArray.push(app);
