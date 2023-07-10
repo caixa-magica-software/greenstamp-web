@@ -39,16 +39,20 @@ const FormattedTable = (props) => {
         accessor: "sum",
       },
       {
+        Header: "Stars",
+        accessor: "stars",
+      },
+      {
         Header: "Ranking",
         accessor: "ranking",
         sortType: (rowA, rowB) => {
-          // Get the values of the cells in this column for rowA and rowB
+          // Gets the values of the cells in this column for rowA and rowB
+          // and sorts them in ascending order
           let a = rowA.values.ranking;
           let b = rowB.values.ranking;
 
-          // Check if both values are numbers
+          // Checks if both values are numbers and compares them as such
           if (!isNaN(a) && !isNaN(b)) {
-            // If both values are numbers, compare them as numbers
             return a - b;
           } else if (!isNaN(a)) {
             // If only a is a number, sort it first
@@ -57,7 +61,7 @@ const FormattedTable = (props) => {
             // If only b is a number, sort it first
             return 1;
           } else {
-            // If neither value is a number, compare them as strings
+            // If neither are numbers, compare them as strings
             return a.localeCompare(b);
           }
         },
@@ -112,7 +116,7 @@ const FormattedTable = (props) => {
     });
 
     setDataArray(tempArray);
-  }, [dataArray, appData, category, tableData, columns]);
+  }, [appData, category, tableData, columns]);
 
   return (
     <Fragment>

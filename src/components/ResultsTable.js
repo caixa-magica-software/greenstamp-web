@@ -64,6 +64,10 @@ const ResultsTable = (props) => {
           }
         },
       },
+      {
+        Header: "Stars",
+        accessor: "stars",
+      },
     ],
     []
   );
