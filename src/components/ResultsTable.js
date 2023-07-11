@@ -44,13 +44,13 @@ const ResultsTable = (props) => {
         accessor: "test_result",
         id: "test_result",
         sortType: (rowA, rowB) => {
-          // Get the values of the cells in this column for rowA and rowB
+          // Gets the values of the cells in this column for rowA and rowB
+          // and sorts them in ascending order
           let a = rowA.values.test_result;
           let b = rowB.values.test_result;
 
-          // Check if both values are numbers
+          // Checks if both values are numbers and compares them as such
           if (!isNaN(a) && !isNaN(b)) {
-            // If both values are numbers, compare them as numbers
             return a - b;
           } else if (!isNaN(a)) {
             // If only a is a number, sort it first
@@ -59,10 +59,14 @@ const ResultsTable = (props) => {
             // If only b is a number, sort it first
             return 1;
           } else {
-            // If neither value is a number, compare them as strings
+            // If neither are numbers, compare them as strings
             return a.localeCompare(b);
           }
         },
+      },
+      {
+        Header: "Stars",
+        accessor: "stars",
       },
     ],
     []
