@@ -34,9 +34,9 @@ const FormattedResults = () => {
       if (app.categories === null) {
         app.categories = ["other"];
       }
-      if (app.stars === null) {
+      if (app.stars === null || app.stars === undefined) {
         app.stars = "★0";
-      } else app.stars = "★" + app.stars;
+      } else app.stars = "★" + Math.round(app.stars * 10) / 10;
 
       app.categories.forEach((category) => {
         if (categoriesArray.includes(category)) return;

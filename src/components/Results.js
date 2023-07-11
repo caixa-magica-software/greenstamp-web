@@ -17,7 +17,7 @@ const Results = () => {
     let categoriesArray = [];
     response.forEach((app) => {
       if (app.category === null) app.category = "other";
-      if (app.stars === null) {
+      if (app.stars === null || app.stars === undefined) {
         app.stars = "★0";
       } else app.stars = "★" + app.stars;
 
